@@ -1,13 +1,66 @@
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
+}
+
+/* Header */
+
+header span {
+  color: #ee6c4d;
+}
+
+header h1 {
+  font-family: "Lobster", cursive;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 70px;
+  text-align: center;
+  background: #e0fbfc;
+  margin: 0;
+}
+
+#cart {
+  text-align: center;
+  position: absolute;
+  top: 9px;
+  right: 30px;
+}
+
+#cart-logo {
+  display: flex;
+  padding: 10px;
+  align-items: center;
+  display: flex;
+  flex-direction: row;
+}
+
+#cart-items {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 25px;
+  height: 25px;
+  background: #ee6c4d;
+  color: #fff;
+  border-radius: 50%;
+}
+
+.fa-shopping-cart {
+  cursor: pointer;
+  margin-right: 10px;
+  transition: transform 0.15s;
+}
+
+.fa-shopping-cart:hover {
+  transform: scale(1.05);
 }
