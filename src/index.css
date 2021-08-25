@@ -25,9 +25,11 @@ header h1 {
   align-items: center;
   height: 70px;
   text-align: center;
-  background: #e0fbfc;
+  background: #e7e2dd;
   margin: 0;
 }
+
+/* Cart */
 
 #cart {
   text-align: center;
@@ -63,4 +65,13 @@ header h1 {
 
 .fa-shopping-cart:hover {
   transform: scale(1.05);
+}
+
+/* Banner */
+
+#banner {
+  width: 100%;
+  height: 700px;
+  background: url("images/banner\ \(Custom\).jpg");
+  background-size: cover;
 }
