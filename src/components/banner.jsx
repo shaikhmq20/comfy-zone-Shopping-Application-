@@ -8,7 +8,7 @@ class Banner extends Component {
         <div id="banner-el">
           <div id="banner-heading">FURNITURE COLLECTION</div>
           <div id="banner-button">
-            <a className="buttons" href="">
+            <a className="buttons" href="#products-container">
               SHOP NOW
             </a>
           </div>
