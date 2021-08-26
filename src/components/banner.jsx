@@ -5,7 +5,14 @@ class Banner extends Component {
   render() {
     return (
       <div id="banner">
-        <div id="banner-el"></div>
+        <div id="banner-el">
+          <div id="banner-heading">FURNITURE COLLECTION</div>
+          <div id="banner-button">
+            <a className="buttons" href="">
+              SHOP NOW
+            </a>
+          </div>
+        </div>
       </div>
     );
   }
