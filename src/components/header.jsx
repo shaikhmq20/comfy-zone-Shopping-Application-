@@ -1,18 +1,15 @@
 import React, { Component } from "react";
+import { Link } from "react-router-dom";
 
 class Header extends Component {
   render() {
     return (
       <header>
         <h1>
-          Comfy <span>Zone</span>
+          <Link to="/">
+            Comfy <span>Zone</span>
+          </Link>
         </h1>
-        <div id="cart">
-          <div id="cart-logo">
-            <i class="fas fa-shopping-cart fa-2x"></i>
-            <div id="cart-items">0</div>
-          </div>
-        </div>
       </header>
     );
   }

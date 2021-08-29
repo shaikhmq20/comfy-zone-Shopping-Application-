@@ -30,7 +30,17 @@ header h1 {
   margin: 0;
 }
 
+header a {
+  text-decoration: none;
+  color: inherit;
+}
+
 /* Cart */
+
+#cart-logo a {
+  text-decoration: none;
+  color: inherit;
+}
 
 #cart {
   text-align: center;
@@ -153,6 +163,7 @@ h3 {
   width: 275px;
   margin: 20px 25px 20px 0;
 }
+
 .product-container .add-to-cart {
   transition: all 0.3s ease-in;
 }
@@ -160,6 +171,11 @@ h3 {
 .product-image {
   width: 275px;
   height: 192px;
+  transition: all 0.5s;
+}
+
+.product-image:hover {
+  filter: contrast(0.8);
 }
 
 .product-name {
@@ -184,6 +200,7 @@ h3 {
   right: 0px;
   animation-name: slide;
   animation-duration: 0.5s;
+  animation-timing-function: ease-out;
 }
 
 .add-to-cart:hover {
