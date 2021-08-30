@@ -13,7 +13,9 @@ class App extends Component {
 
   addItem = (product) => {
     const cart = this.state.cart;
-    cart.push(product);
+    if (cart.find((prod) => product.name === prod.name) === undefined)
+      cart.push(product);
+    else alert("Product already exists in your cart!😊");
     console.log(cart);
     this.setState({ cart });
   };
