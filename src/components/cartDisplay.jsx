@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import Cart from "./cart";
+import CartItem from "./cartItem";
 import Header from "./header";
 
 class CartDisplay extends Component {
@@ -10,10 +10,9 @@ class CartDisplay extends Component {
     return (
       <React.Fragment>
         <Header />
-        <Cart cart={this.state.cart} />
-        <div id="cart-container">
-          {this.state.cart.map((product) => {
-            return <p>{product.name}</p>;
+        <div id="cart-items">
+          {this.state.cart.map((cprod) => {
+            return <CartItem cprod={cprod} key={cprod.id} />;
           })}
         </div>
       </React.Fragment>

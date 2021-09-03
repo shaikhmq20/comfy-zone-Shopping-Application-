@@ -9,7 +9,7 @@ class Cart extends Component {
           <Link to="/yourCart">
             <i class="fas fa-shopping-cart fa-2x"></i>
           </Link>
-          <div id="cart-items">{this.props.cart.length}</div>
+          <div id="cart-items-size">{this.props.cart.length}</div>
         </div>
       </div>
     );
