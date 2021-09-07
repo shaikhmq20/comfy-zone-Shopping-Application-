@@ -5,7 +5,10 @@ class Counter extends React.Component {
     return (
       <div className="counter">
         <div className="decrement">
-          <button type="decrease" onClick={() => this.handleDecrement()}>
+          <button
+            type="decrease"
+            onClick={(cprod) => this.props.onDecrement(cprod)}
+          >
             -
           </button>
         </div>

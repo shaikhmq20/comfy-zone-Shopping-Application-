@@ -15,7 +15,9 @@ class App extends Component {
   addItem = (product) => {
     const cart = this.state.cart;
     if (cart.find((prod) => product.name === prod.name) === undefined) {
-      product.count += 1;
+      if (product.count === 0) {
+        product.count++;
+      }
       cart.push(product);
     } else alert("Product already exists in your cart!😊");
     console.log(cart);
@@ -34,6 +36,23 @@ class App extends Component {
     this.setState({ cart });
   };
 
+  handleDecrement = (cprod) => {
+    let isEmpty = false;
+    let cart = this.state.cart;
+    for (const item of cart) {
+      if (item.name === cprod.name && item.count !== 1) {
+        item.count--;
+      } else if (item.name === cprod.name && item.count === 1) {
+        isEmpty = true;
+      }
+    }
+
+    if (isEmpty) {
+      cart = cart.filter((prod) => prod.name !== cprod.name);
+    }
+    this.setState({ cart });
+  };
+
   render() {
     return (
       <BrowserRouter>
@@ -49,6 +68,7 @@ class App extends Component {
             cart={this.state.cart}
             product={this.state.products}
             onIncrement={(cprod) => this.handleIncrement(cprod)}
+            onDecrement={(cprod) => this.handleDecrement(cprod)}
           />
         </Route>
       </BrowserRouter>

@@ -17,6 +17,7 @@ class CartItem extends Component {
             <Counter
               cprod={this.props.cprod}
               onIncrement={(cprod) => this.props.onIncrement(cprod)}
+              onDecrement={(cprod) => this.props.onDecrement(cprod)}
             />
           </div>
         </div>
