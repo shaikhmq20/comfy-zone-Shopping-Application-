@@ -7,7 +7,7 @@ class CartItem extends Component {
 
     return (
       <div className="cart-item">
-        <div className="item-image">
+        <div className="item-image product-image">
           <img src={image} alt={name} />
         </div>
         <div className="item-details">
@@ -19,6 +19,14 @@ class CartItem extends Component {
               onIncrement={(cprod) => this.props.onIncrement(cprod)}
               onDecrement={(cprod) => this.props.onDecrement(cprod)}
             />
+          </div>
+          <div className="remove-item">
+            <button
+              className="remove-btn"
+              onClick={(cprod) => this.props.onRemove(cprod)}
+            >
+              Remove
+            </button>
           </div>
         </div>
       </div>

@@ -15,6 +15,7 @@ class CartDisplay extends Component {
                 key={cprod.id}
                 onIncrement={() => this.props.onIncrement(cprod)}
                 onDecrement={() => this.props.onDecrement(cprod)}
+                onRemove={() => this.props.onRemove(cprod)}
               />
             );
           })}

@@ -127,6 +127,7 @@ header a {
 .buttons {
   font-size: 20px;
   text-decoration: none;
+  background-color: #fff;
   color: #ee6c4d;
   border: 1px solid #ee6c4d;
   padding: 15px 30px;
@@ -175,16 +176,21 @@ h3 {
 .product-container .add-to-cart {
   transition: all 0.3s ease-in;
 }
+.product-image img {
+  border-radius: 8px;
+}
 
 .product-image {
+  border-radius: 8px;
   width: 275px;
   height: 192px;
-  transition: filter 0.5s;
+  transition: filter 0.5s, box-shadow 0.15s, transform 0.35s;
 }
 
 .product-image:hover {
   filter: contrast(0.8);
   box-shadow: 0 0 8px grey;
+  transform: scale(1.05);
 }
 
 .product-name {
@@ -230,7 +236,7 @@ h3 {
 }
 
 .cart-item {
-  margin: 15px;
+  margin: 20px;
   display: grid;
   grid-template-columns: 300px 40%;
   grid-template-rows: auto;
@@ -240,24 +246,82 @@ h3 {
   display: flex;
   flex-direction: row;
   align-items: center;
+  margin-top: 30px;
+}
+
+.item-image img {
+  border-radius: 8px;
+}
+
+.item-name {
+  font-weight: 500;
+  font-size: 18px;
+}
+
+.item-price {
+  margin-top: 10px;
+  color: #ee6c4d;
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
 }
 
 .count {
+  animation: fadeIn 0.5s;
   padding: 0 5px;
+  margin: 0 8px;
 }
 
 /* Counter */
 
 .increment button {
-  background-color: #ee6c4d;
-  border: none;
-  color: #fff;
+  background-color: #fff;
+  padding: 6px 10px;
+  border: 1px solid #ee6c4d;
+  color: #ee6c4d;
   font-size: 18px;
+  transition: all 0.35s;
+}
+
+.increment button:hover {
+  background-color: #ee6c4d;
+  color: #fff;
 }
 
 .decrement button {
+  padding: 6px 12px;
+  background-color: #fff;
+  border: 1px solid black;
+  color: #000;
+  font-size: 18px;
+  transition: all 0.35s;
+}
+
+.decrement button:hover {
   background-color: #000;
+  color: #fff;
+}
+
+.remove-btn {
+  margin-top: 20px;
+  border-radius: 5px;
   border: none;
   color: #fff;
-  font-size: 18px;
+  background-color: #ee6c4d;
+  font-size: 16px;
+  padding: 5px 20px;
+  transition: all 0.35s;
+}
+
+.remove-btn:hover {
+  cursor: pointer;
+  background-color: #fff;
+  border: 1px solid #ee6c4d;
+  color: #ee6c4d;
 }

@@ -42,14 +42,14 @@ class App extends Component {
     for (const item of cart) {
       if (item.name === cprod.name && item.count !== 1) {
         item.count--;
-      } else if (item.name === cprod.name && item.count === 1) {
-        isEmpty = true;
       }
     }
+    this.setState({ cart });
+  };
 
-    if (isEmpty) {
-      cart = cart.filter((prod) => prod.name !== cprod.name);
-    }
+  handleRemove = (cprod) => {
+    const cart = this.state.cart.filter((prod) => prod.name !== cprod.name);
+    cprod.count = 0;
     this.setState({ cart });
   };
 
@@ -69,6 +69,7 @@ class App extends Component {
             product={this.state.products}
             onIncrement={(cprod) => this.handleIncrement(cprod)}
             onDecrement={(cprod) => this.handleDecrement(cprod)}
+            onRemove={(cprod) => this.handleRemove(cprod)}
           />
         </Route>
       </BrowserRouter>
