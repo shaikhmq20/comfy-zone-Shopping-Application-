@@ -235,3 +235,29 @@ h3 {
   grid-template-columns: 300px 40%;
   grid-template-rows: auto;
 }
+
+.counter {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.count {
+  padding: 0 5px;
+}
+
+/* Counter */
+
+.increment button {
+  background-color: #ee6c4d;
+  border: none;
+  color: #fff;
+  font-size: 18px;
+}
+
+.decrement button {
+  background-color: #000;
+  border: none;
+  color: #fff;
+  font-size: 18px;
+}

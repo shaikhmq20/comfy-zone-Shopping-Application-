@@ -11,6 +11,7 @@ class App extends Component {
     cart: [],
   };
 
+  // Event Handler to Add Item to Cart
   addItem = (product) => {
     const cart = this.state.cart;
     if (cart.find((prod) => product.name === prod.name) === undefined) {
@@ -18,6 +19,18 @@ class App extends Component {
       cart.push(product);
     } else alert("Product already exists in your cart!😊");
     console.log(cart);
+    this.setState({ cart });
+  };
+
+  // Event Handler to Increase Count of Product
+  handleIncrement = (cprod) => {
+    const cart = this.state.cart;
+    for (const item of cart) {
+      if (item.name === cprod.name) {
+        item.count++;
+      }
+    }
+
     this.setState({ cart });
   };
 
@@ -32,7 +45,11 @@ class App extends Component {
           />
         </Route>
         <Route path="/yourCart">
-          <CartDisplay cart={this.state.cart} product={this.state.products} />
+          <CartDisplay
+            cart={this.state.cart}
+            product={this.state.products}
+            onIncrement={(cprod) => this.handleIncrement(cprod)}
+          />
         </Route>
       </BrowserRouter>
     );

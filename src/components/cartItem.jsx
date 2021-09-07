@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import Counter from "./counter";
 
 class CartItem extends Component {
   render() {
@@ -7,11 +8,17 @@ class CartItem extends Component {
     return (
       <div className="cart-item">
         <div className="item-image">
-          <img src={image} />
+          <img src={image} alt={name} />
         </div>
         <div className="item-details">
           <div className="item-name">{name}</div>
           <div className="item-price">$ {price}</div>
+          <div className="item-count">
+            <Counter
+              cprod={this.props.cprod}
+              onIncrement={(cprod) => this.props.onIncrement(cprod)}
+            />
+          </div>
         </div>
       </div>
     );

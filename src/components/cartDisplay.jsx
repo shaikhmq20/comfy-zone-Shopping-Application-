@@ -6,13 +6,20 @@ class CartDisplay extends Component {
   state = {
     cart: this.props.cart,
   };
+
   render() {
     return (
       <React.Fragment>
         <Header />
         <div id="cart-items">
           {this.state.cart.map((cprod) => {
-            return <CartItem cprod={cprod} key={cprod.id} />;
+            return (
+              <CartItem
+                cprod={cprod}
+                key={cprod.id}
+                onIncrement={() => this.props.onIncrement(cprod)}
+              />
+            );
           })}
         </div>
       </React.Fragment>
