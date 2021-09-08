@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 
-class Total extends React.Component {
+class Total extends Component {
   render() {
     const sum = this.props.subTotal();
     if (this.props.cart.length === 0) return null;
