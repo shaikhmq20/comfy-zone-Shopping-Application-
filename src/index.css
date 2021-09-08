@@ -122,6 +122,31 @@ header a {
   margin-bottom: 50px;
 }
 
+@media only screen and (max-width: 768px) {
+  #banner-heading {
+    font-size: 40px;
+    padding: 40px 0;
+  }
+
+  #banner-button {
+    padding: 10px;
+    margin-bottom: 40px;
+  }
+}
+
+@media only screen and (max-width: 611px) {
+  #banner-heading {
+    font-size: 20px;
+    padding: 40px 0;
+  }
+
+  #banner-button .buttons {
+    padding: 7.5px 15px;
+    margin-bottom: 40px;
+    font-size: 16px;
+  }
+}
+
 /* Buttons */
 
 .buttons {
@@ -163,6 +188,24 @@ h3 {
   grid-template-columns: repeat(4, auto);
   grid-template-rows: repeat(2, auto);
   justify-content: center;
+  align-content: center;
+  align-items: center;
+}
+
+@media only screen and (max-width: 991px) {
+  #products-container {
+    grid-template-columns: repeat(2, auto);
+    grid-template-rows: repeat(4, auto);
+    justify-content: center;
+  }
+}
+
+@media only screen and (max-width: 611px) {
+  #products-container {
+    grid-template-columns: repeat(1, auto);
+    grid-template-rows: repeat(8, auto);
+    justify-content: center;
+  }
 }
 
 .product-container {

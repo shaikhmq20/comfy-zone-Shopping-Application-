@@ -15,18 +15,20 @@ class CartDisplay extends Component {
     return (
       <React.Fragment>
         <Header />
-        <div id="cart-items">
-          {this.props.cart.map((cprod) => {
-            return (
-              <CartItem
-                cprod={cprod}
-                key={cprod.id}
-                onIncrement={() => this.props.onIncrement(cprod)}
-                onDecrement={() => this.props.onDecrement(cprod)}
-                onRemove={() => this.props.onRemove(cprod)}
-              />
-            );
-          })}
+        <div id="main">
+          <div id="cart-items">
+            {this.props.cart.map((cprod) => {
+              return (
+                <CartItem
+                  cprod={cprod}
+                  key={cprod.id}
+                  onIncrement={() => this.props.onIncrement(cprod)}
+                  onDecrement={() => this.props.onDecrement(cprod)}
+                  onRemove={() => this.props.onRemove(cprod)}
+                />
+              );
+            })}
+          </div>
         </div>
       </React.Fragment>
     );
