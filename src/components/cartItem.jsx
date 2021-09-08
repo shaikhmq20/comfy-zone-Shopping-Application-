@@ -7,7 +7,7 @@ class CartItem extends Component {
 
     return (
       <div className="cart-item">
-        <div className="item-image product-image">
+        <div className="item-image">
           <img src={image} alt={name} />
         </div>
         <div className="item-details">

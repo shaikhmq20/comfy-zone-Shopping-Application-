@@ -4,6 +4,7 @@ import CartDisplay from "./components/cartDisplay";
 import "./App.css";
 import { BrowserRouter, Route } from "react-router-dom";
 import getProducts from "./products";
+import Total from "./components/total";
 
 class App extends Component {
   state = {
@@ -37,7 +38,6 @@ class App extends Component {
   };
 
   handleDecrement = (cprod) => {
-    let isEmpty = false;
     let cart = this.state.cart;
     for (const item of cart) {
       if (item.name === cprod.name && item.count !== 1) {
@@ -50,6 +50,24 @@ class App extends Component {
   handleRemove = (cprod) => {
     const cart = this.state.cart.filter((prod) => prod.name !== cprod.name);
     cprod.count = 0;
+    this.setState({ cart });
+  };
+
+  subTotal = () => {
+    let sum = 0;
+    for (const item of this.state.cart) {
+      sum += item.count * item.price;
+    }
+
+    return sum;
+  };
+
+  emptyCart = () => {
+    let cart = this.state.cart;
+    for (const item of cart) {
+      item.count = 0;
+    }
+    cart = [];
     this.setState({ cart });
   };
 
@@ -70,6 +88,11 @@ class App extends Component {
             onIncrement={(cprod) => this.handleIncrement(cprod)}
             onDecrement={(cprod) => this.handleDecrement(cprod)}
             onRemove={(cprod) => this.handleRemove(cprod)}
+          />
+          <Total
+            cart={this.state.cart}
+            subTotal={() => this.subTotal()}
+            onEmpty={() => this.emptyCart()}
           />
         </Route>
       </BrowserRouter>

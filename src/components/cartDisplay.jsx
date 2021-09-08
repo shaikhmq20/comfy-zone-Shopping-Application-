@@ -4,6 +4,14 @@ import Header from "./header";
 
 class CartDisplay extends Component {
   render() {
+    if (this.props.cart.length === 0) {
+      return (
+        <React.Fragment>
+          <Header />
+          <p id="no-items">You have 0 items in your cart!</p>
+        </React.Fragment>
+      );
+    }
     return (
       <React.Fragment>
         <Header />

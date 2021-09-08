@@ -131,10 +131,11 @@ header a {
   color: #ee6c4d;
   border: 1px solid #ee6c4d;
   padding: 15px 30px;
-  transition: all 0.5s;
+  transition: all 0.25s;
 }
 
 .buttons:hover {
+  cursor: pointer;
   border: none;
   color: #fff;
   background-color: #ee6c4d;
@@ -184,24 +185,24 @@ h3 {
   border-radius: 8px;
   width: 275px;
   height: 192px;
-  transition: filter 0.5s, box-shadow 0.15s, transform 0.35s;
+  transition: filter 0.5s, box-shadow 0.15s;
 }
 
 .product-image:hover {
   filter: contrast(0.8);
   box-shadow: 0 0 8px grey;
-  transform: scale(1.05);
 }
 
 .product-name {
   font-size: 18px;
-  font-weight: 400;
+  font-weight: 600;
   padding: 10px;
 }
 
 .product-price {
   font-size: 18px;
   color: #ee6c4d;
+  font-weight: 500;
 }
 
 .add-to-cart {
@@ -229,20 +230,32 @@ h3 {
 
 /* Cart Display */
 
-#cart-items {
-  margin-top: 10px;
+#no-items {
+  margin: 80px 20px;
+  font-size: 18px;
   position: relative;
-  top: 70px;
+  top: 237px;
+  left: 40%;
+}
+
+#cart-items {
+  float: left;
+  margin-top: 80px;
+  width: 800px;
 }
 
 .cart-item {
+  background: #e9e8e7;
+  border-radius: 8px;
   margin: 20px;
   display: grid;
   grid-template-columns: 300px 40%;
-  grid-template-rows: auto;
+  grid-template-rows: 192px;
 }
 
 .counter {
+  position: relative;
+  top: 30px;
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -254,13 +267,16 @@ h3 {
 }
 
 .item-name {
-  font-weight: 500;
+  margin-top: 10px;
+  font-weight: 600;
   font-size: 18px;
 }
 
 .item-price {
   margin-top: 10px;
   color: #ee6c4d;
+  font-size: 24px;
+  font-weight: 500;
 }
 
 @keyframes fadeIn {
@@ -281,6 +297,7 @@ h3 {
 /* Counter */
 
 .increment button {
+  font-weight: 600;
   background-color: #fff;
   padding: 6px 10px;
   border: 1px solid #ee6c4d;
@@ -295,6 +312,7 @@ h3 {
 }
 
 .decrement button {
+  font-weight: 600;
   padding: 6px 12px;
   background-color: #fff;
   border: 1px solid black;
@@ -309,19 +327,38 @@ h3 {
 }
 
 .remove-btn {
-  margin-top: 20px;
+  position: relative;
+  top: -5px;
+  left: 200px;
   border-radius: 5px;
   border: none;
   color: #fff;
   background-color: #ee6c4d;
   font-size: 16px;
-  padding: 5px 20px;
+  padding: 8px 30px;
   transition: all 0.35s;
 }
-
 .remove-btn:hover {
   cursor: pointer;
   background-color: #fff;
   border: 1px solid #ee6c4d;
   color: #ee6c4d;
+}
+
+/* Total */
+
+.subtotal {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: absolute;
+  right: 300px;
+  margin-top: 90px;
+}
+
+#total {
+  float: left;
+  font-size: 20px;
+  font-weight: 600;
+  margin-bottom: 20px;
 }
