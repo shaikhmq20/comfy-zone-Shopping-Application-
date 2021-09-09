@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import CartItem from "./cartItem";
 import Header from "./header";
+import Total from "./total";
 
 class CartDisplay extends Component {
   render() {
@@ -29,6 +30,11 @@ class CartDisplay extends Component {
               );
             })}
           </div>
+          <Total
+            cart={this.props.cart}
+            subTotal={() => this.props.subTotal()}
+            onEmpty={() => this.props.onEmpty()}
+          />
         </div>
       </React.Fragment>
     );

@@ -4,7 +4,6 @@ import CartDisplay from "./components/cartDisplay";
 import "./App.css";
 import { BrowserRouter, Route } from "react-router-dom";
 import getProducts from "./products";
-import Total from "./components/total";
 
 class App extends Component {
   state = {
@@ -88,9 +87,6 @@ class App extends Component {
             onIncrement={(cprod) => this.handleIncrement(cprod)}
             onDecrement={(cprod) => this.handleDecrement(cprod)}
             onRemove={(cprod) => this.handleRemove(cprod)}
-          />
-          <Total
-            cart={this.state.cart}
             subTotal={() => this.subTotal()}
             onEmpty={() => this.emptyCart()}
           />
