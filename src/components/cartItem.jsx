@@ -13,20 +13,22 @@ class CartItem extends Component {
         <div className="item-details">
           <div className="item-name">{name}</div>
           <div className="item-price">$ {price}</div>
-          <div className="item-count">
-            <Counter
-              cprod={this.props.cprod}
-              onIncrement={(cprod) => this.props.onIncrement(cprod)}
-              onDecrement={(cprod) => this.props.onDecrement(cprod)}
-            />
-          </div>
-          <div className="remove-item">
-            <button
-              className="remove-btn"
-              onClick={(cprod) => this.props.onRemove(cprod)}
-            >
-              Remove
-            </button>
+          <div id="response">
+            <div className="item-count">
+              <Counter
+                cprod={this.props.cprod}
+                onIncrement={(cprod) => this.props.onIncrement(cprod)}
+                onDecrement={(cprod) => this.props.onDecrement(cprod)}
+              />
+            </div>
+            <div className="remove-item">
+              <button
+                className="remove-btn"
+                onClick={(cprod) => this.props.onRemove(cprod)}
+              >
+                Remove
+              </button>
+            </div>
           </div>
         </div>
       </div>
