@@ -293,9 +293,10 @@ h3 {
 #no-items {
   margin: 80px 20px;
   font-size: 18px;
-  position: relative;
-  top: 42vh;
-  left: 42.2vw;
+  height: 80vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 #cart-items {
