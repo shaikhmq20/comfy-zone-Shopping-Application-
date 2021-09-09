@@ -192,7 +192,7 @@ h3 {
   align-items: center;
 }
 
-@media only screen and (max-width: 991px) {
+@media only screen and (max-width: 1180px) {
   #products-container {
     grid-template-columns: repeat(2, auto);
     grid-template-rows: repeat(4, auto);
@@ -410,6 +410,14 @@ h3 {
   color: #ee6c4d;
 }
 
+#total {
+  font-size: 40px;
+  font-weight: 600;
+  margin-top: 95px;
+  margin-right: 20px;
+  margin-bottom: 20px;
+}
+
 @media screen and (max-width: 580px) {
   .item-image img {
     transform: scale(0.5);
@@ -422,19 +430,15 @@ h3 {
     flex-direction: column;
     align-items: center;
   }
+
+  #total {
+    font-size: 26px;
+  }
 }
 
 /* Total */
 
 .subtotal {
   margin-left: 20px;
-  margin-bottom: 20px;
-}
-
-#total {
-  font-size: 40px;
-  font-weight: 600;
-  margin-top: 95px;
-  margin-right: 20px;
   margin-bottom: 20px;
 }
