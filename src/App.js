@@ -9,6 +9,26 @@ class App extends Component {
   state = {
     products: getProducts(),
     cart: [],
+    darkMode: false,
+  };
+
+  toggleDarkMode = () => {
+    let root = document.documentElement;
+    let darkMode = this.state.darkMode;
+
+    if (!darkMode) {
+      root.style.setProperty("--background", "#3f3f3f");
+      root.style.setProperty("--text-color", "#fff");
+      root.style.setProperty("--cart-bg", "#676767");
+      darkMode = !darkMode;
+      this.setState({ darkMode });
+    } else {
+      root.style.setProperty("--background", "#fff");
+      root.style.setProperty("--text-color", "#000");
+      root.style.setProperty("--cart-bg", "#e9e8e7");
+      darkMode = !darkMode;
+      this.setState({ darkMode });
+    }
   };
 
   // Event Handler to Add Item to Cart
@@ -78,17 +98,21 @@ class App extends Component {
             cart={this.state.cart}
             products={this.state.products}
             onClicking={(product) => this.addItem(product)}
+            darkMode={this.state.darkMode}
+            toggleTheme={() => this.toggleDarkMode()}
           />
         </Route>
         <Route path="/yourCart">
           <CartDisplay
             cart={this.state.cart}
+            darkMode={this.state.darkMode}
             product={this.state.products}
             onIncrement={(cprod) => this.handleIncrement(cprod)}
             onDecrement={(cprod) => this.handleDecrement(cprod)}
             onRemove={(cprod) => this.handleRemove(cprod)}
             subTotal={() => this.subTotal()}
             onEmpty={() => this.emptyCart()}
+            toggleTheme={() => this.toggleDarkMode()}
           />
         </Route>
       </BrowserRouter>

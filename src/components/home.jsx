@@ -7,7 +7,10 @@ class Home extends Component {
   render() {
     return (
       <React.Fragment>
-        <Header />
+        <Header
+          darkMode={this.props.darkMode}
+          toggleTheme={() => this.props.toggleTheme()}
+        />
         <Banner />
         <ProductsDisplay
           products={this.props.products}

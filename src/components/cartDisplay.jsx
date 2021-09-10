@@ -8,14 +8,20 @@ class CartDisplay extends Component {
     if (this.props.cart.length === 0) {
       return (
         <React.Fragment>
-          <Header />
+          <Header
+            toggleTheme={() => this.props.toggleTheme()}
+            darkMode={this.props.darkMode}
+          />
           <p id="no-items">You have 0 items in your cart!</p>
         </React.Fragment>
       );
     }
     return (
       <React.Fragment>
-        <Header />
+        <Header
+          darkMode={this.props.darkMode}
+          toggleTheme={() => this.props.toggleTheme()}
+        />
         <div id="main">
           <div id="cart-items">
             {this.props.cart.map((cprod) => {
