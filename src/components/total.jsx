@@ -8,7 +8,7 @@ class Total extends Component {
       <div className="subtotal">
         <div id="total">Your Total : $ {sum.toFixed(2)}</div>
         <div className="clear-cart">
-          <button className="buttons" onClick={() => this.props.onEmpty()}>
+          <button id="empty-cart" onClick={() => this.props.onEmpty()}>
             Empty Cart
           </button>
         </div>

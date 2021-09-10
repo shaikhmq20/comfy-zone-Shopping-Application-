@@ -395,32 +395,34 @@ h3 {
 
 .increment button {
   font-weight: 600;
-  background-color: #fff;
+  background-color: #ee6c4d;
   padding: 6px 10px;
   border: 1px solid #ee6c4d;
-  color: #ee6c4d;
+  color: #fff;
   font-size: 18px;
   transition: all 0.35s;
 }
 
 .increment button:hover {
-  background-color: #ee6c4d;
-  color: #fff;
+  background-color: #fff;
+  color: #ee6c4d;
+  border: 1px solid #ee6c4d;
 }
 
 .decrement button {
   font-weight: 600;
   padding: 6px 12px;
-  background-color: #fff;
+  background-color: #000;
   border: 1px solid black;
-  color: #000;
+  color: #fff;
   font-size: 18px;
   transition: all 0.35s;
 }
 
 .decrement button:hover {
-  background-color: #000;
-  color: #fff;
+  background-color: #fff;
+  color: #000;
+  border: 1px solid #000;
 }
 
 #response {
@@ -433,7 +435,7 @@ h3 {
 
 .remove-btn {
   border-radius: 5px;
-  border: none;
+  border: 1px solid #ee6c4d;
   color: #fff;
   background-color: #ee6c4d;
   font-size: 16px;
@@ -479,4 +481,19 @@ h3 {
 .subtotal {
   margin-left: 20px;
   margin-bottom: 20px;
+}
+
+#empty-cart {
+  color: #fff;
+  background-color: #ee6c4d;
+  border: 1px solid #ee6c4d;
+  padding: 15px 30px;
+  font-size: 20px;
+  transition: all 0.35s;
+}
+
+#empty-cart:hover {
+  color: #ee6c4d;
+  border: 1px solid #ee6c4d;
+  background-color: #fff;
 }
