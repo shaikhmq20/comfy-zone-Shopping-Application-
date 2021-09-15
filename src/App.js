@@ -47,22 +47,18 @@ class App extends Component {
   // Event Handler to Increase Count of Product
   handleIncrement = (cprod) => {
     const cart = this.state.cart;
-    for (const item of cart) {
-      if (item.name === cprod.name) {
-        item.count++;
-      }
-    }
+    const cartItem = cart.find((cp) => cp.name === cprod.name);
+    cartItem.count++;
 
     this.setState({ cart });
   };
 
   handleDecrement = (cprod) => {
     let cart = this.state.cart;
-    for (const item of cart) {
-      if (item.name === cprod.name && item.count !== 1) {
-        item.count--;
-      }
-    }
+    const carItem = cart.find((cp) => name === cprod.name);
+    if (cartItem.count > 1)
+      cartItem.count++;
+
     this.setState({ cart });
   };
 
