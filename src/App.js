@@ -8,7 +8,7 @@ import getProducts from "./products";
 class App extends Component {
   state = {
     products: getProducts(),
-    cart: [],
+    cart: JSON.parse(localStorage.getItem("cart")) === null ? [] : JSON.parse(localStorage.getItem("cart")),
     darkMode: false,
   };
 
@@ -41,6 +41,7 @@ class App extends Component {
       cart.push(product);
     } else alert("Product already exists in your cart!😊");
     console.log(cart);
+    localStorage.setItem("cart", JSON.stringify(cart));
     this.setState({ cart });
   };
 
@@ -53,6 +54,7 @@ class App extends Component {
       }
     }
 
+    localStorage.setItem("cart", JSON.stringify(cart));
     this.setState({ cart });
   };
 
@@ -63,12 +65,15 @@ class App extends Component {
         item.count--;
       }
     }
+
+    localStorage.setItem("cart", JSON.stringify(cart));
     this.setState({ cart });
   };
 
   handleRemove = (cprod) => {
     const cart = this.state.cart.filter((prod) => prod.name !== cprod.name);
     cprod.count = 0;
+    localStorage.setItem("cart", JSON.stringify(cart));
     this.setState({ cart });
   };
 
@@ -87,6 +92,7 @@ class App extends Component {
       item.count = 0;
     }
     cart = [];
+    localStorage.setItem("cart", JSON.stringify(cart));
     this.setState({ cart });
   };
 
