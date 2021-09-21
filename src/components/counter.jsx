@@ -8,6 +8,7 @@ class Counter extends Component {
           <button
             type="decrease"
             onClick={(cprod) => this.props.onDecrement(cprod)}
+            disabled={this.props.cprod.count === 0}
           >
             -
           </button>
