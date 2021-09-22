@@ -391,6 +391,30 @@ h3 {
   margin: 0 8px;
 }
 
+#pagination {
+  padding-top: 100px;
+}
+
+#pages li {
+  cursor: pointer;
+  color: var(--text-color);
+  padding: 10px 15px;
+  border: 1px solid var(--background);
+  display: inline;
+  background-color: #ee6c4d;
+  list-style-type: none;
+  transition: all 0.25s;
+}
+
+#pages li:hover {
+  background-color: var(--background);
+}
+
+.active {
+  background-color: #000 !important;
+  color: #fff !important;
+}
+
 /* Counter */
 
 .increment button {

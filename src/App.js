@@ -61,7 +61,7 @@ class App extends Component {
   handleDecrement = (cprod) => {
     let cart = this.state.cart;
     for (const item of cart) {
-      if (item.name === cprod.name && item.count !== 1) {
+      if (item.name === cprod.name) {
         item.count--;
       }
     }
