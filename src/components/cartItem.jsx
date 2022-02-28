@@ -12,7 +12,7 @@ class CartItem extends Component {
         </div>
         <div className="item-details">
           <div className="item-name">{name}</div>
-          <div className="item-price">$ {price}</div>
+          <div className="item-price">₹ {price}</div>
           <div id="response">
             <div className="item-count">
               <Counter

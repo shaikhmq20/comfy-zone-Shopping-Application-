@@ -10,7 +10,7 @@ class Product extends Component {
             <img src={image} alt="" />
           </div>
           <div className="product-name">{name}</div>
-          <div className="product-price">$ {price}</div>
+          <div className="product-price">₹ {price}</div>
           <span onClick={() => this.props.onClicking()} className="add-to-cart">
             <i id="add-to-cart" class="fas fa-shopping-cart"></i> ADD TO CART
           </span>
