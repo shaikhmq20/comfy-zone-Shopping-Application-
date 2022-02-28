@@ -3,7 +3,7 @@
 ---
 
 - A basic shopping application where you can discover product and it to your cart
-- The website is hosted using **'Netlify'** https://comfy-zone.netlify.app
+- The website is hosted on https://comfy-zone.netlify.app
 
 # Technologies used
 
