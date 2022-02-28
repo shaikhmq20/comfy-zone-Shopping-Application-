@@ -4,6 +4,7 @@
 
 - A basic shopping application where you can discover product and add it to your cart
 - The website is hosted using **'Netlify'** on https://comfy-zone.netlify.app
+- Responsive for both desktop and mobile screen
 
 # Technologies used
 
