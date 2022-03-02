@@ -1,14 +1,19 @@
 import React, { Component } from "react";
+import { BrowserRouter, Route } from "react-router-dom";
+
+import "./App.css";
 import Home from "./components/home";
 import CartDisplay from "./components/cartDisplay";
-import "./App.css";
-import { BrowserRouter, Route } from "react-router-dom";
 import getProducts from "./products";
+import { updateStockForId } from "./utils/stockDetails";
 
 class App extends Component {
   state = {
     products: getProducts(),
-    cart: JSON.parse(localStorage.getItem("cart")) === null ? [] : JSON.parse(localStorage.getItem("cart")),
+    cart:
+      JSON.parse(localStorage.getItem("cart")) === null
+        ? []
+        : JSON.parse(localStorage.getItem("cart")),
     darkMode: false,
   };
 
@@ -32,13 +37,15 @@ class App extends Component {
   };
 
   // Event Handler to Add Item to Cart
-  addItem = (product) => {
+  addItem = async (product) => {
     const cart = this.state.cart;
     if (cart.find((prod) => product.name === prod.name) === undefined) {
       if (product.count === 0) {
         product.count++;
       }
+
       cart.push(product);
+      updateStockForId(product.id, 1, false);
     } else alert("Product already exists in your cart!😊");
     console.log(cart);
     localStorage.setItem("cart", JSON.stringify(cart));
@@ -54,6 +61,8 @@ class App extends Component {
       }
     }
 
+    updateStockForId(cprod.id, 1, false);
+
     localStorage.setItem("cart", JSON.stringify(cart));
     this.setState({ cart });
   };
@@ -66,12 +75,15 @@ class App extends Component {
       }
     }
 
+    updateStockForId(cprod.id, 1, true);
+
     localStorage.setItem("cart", JSON.stringify(cart));
     this.setState({ cart });
   };
 
   handleRemove = (cprod) => {
     const cart = this.state.cart.filter((prod) => prod.name !== cprod.name);
+    updateStockForId(cprod.id, cprod.count, true);
     cprod.count = 0;
     localStorage.setItem("cart", JSON.stringify(cart));
     this.setState({ cart });
@@ -89,6 +101,7 @@ class App extends Component {
   emptyCart = () => {
     let cart = this.state.cart;
     for (const item of cart) {
+      updateStockForId(item.id, item.count, true);
       item.count = 0;
     }
     cart = [];

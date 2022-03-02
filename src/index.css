@@ -270,6 +270,19 @@ h3 {
   box-shadow: 0 0 8px grey;
 }
 
+.number-in-stock {
+  font-size: small;
+  font-weight: bold;
+  background-color: #ee6c4d;
+  padding: 2.5px 7.5px;
+  border-bottom-left-radius: 8px;
+  border-top-right-radius: 8px;
+  color: antiquewhite;
+  position: absolute;
+  top: 0px;
+  right: 0px;
+}
+
 .product-name {
   font-size: 18px;
   font-weight: 600;
