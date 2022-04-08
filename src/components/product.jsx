@@ -10,6 +10,7 @@ class Product extends Component {
       .get("http://localhost:5000/" + this.props.product.id)
       .then((res) => {
         const productsStock = res.data;
+        console.log(res.data);
         this.setState({ numberInStock: productsStock.numberInStock });
       })
       .catch((err) => console.log(err));
@@ -19,9 +20,9 @@ class Product extends Component {
     this.getNumberInStock();
   }
 
-  componentDidUpdate() {
-    this.getNumberInStock();
-  }
+  // componentDidUpdate() {
+  //   this.getNumberInStock();
+  // }
 
   render() {
     const { image, name, price } = this.props.product;

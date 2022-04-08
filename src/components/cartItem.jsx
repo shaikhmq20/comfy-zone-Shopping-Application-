@@ -1,10 +1,20 @@
 import React, { Component } from "react";
+import { getStockForId } from "../utils/stockDetails";
 import Counter from "./counter";
 
 class CartItem extends Component {
+  state = {
+    numberInStock: 0,
+  }
+
+  async componentDidMount() {
+    const data = await getStockForId(this.props.cprod.id);
+    this.setState({numberInStock: data.numberInStock})
+  }
+
   render() {
     const { image, name, price } = this.props.cprod;
-
+    console.log(this.props.cprod);
     return (
       <div className="cart-item">
         <div className="item-image">
@@ -13,6 +23,7 @@ class CartItem extends Component {
         <div className="item-details">
           <div className="item-name">{name}</div>
           <div className="item-price">₹ {price}</div>
+          <div className="item-number-in-stock">In Stock: {this.state.numberInStock}</div>
           <div id="response">
             <div className="item-count">
               <Counter
