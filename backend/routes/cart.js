@@ -13,17 +13,11 @@ router.get("/:id", (req, res) => {
     .catch((err) => console.log(err));
 });
 
-router.post("/addToCart/:id", (req, res) => {
-  const cart = {
-    name: "Dresser",
-    price: 320.99,
-    image: "../images/img6 (Custom).jpg",
-    id: 6,
-    count: 0,
-  };
-
-  const newCart = new Cart(cart);
-
+router.post("/addToCart/", (req, res) => {
+  console.log("Router: ", req.body);
+  
+  const newCart = new Cart(req.body);
+  
   newCart
     .save()
     .then(() => res.status(200).json("Done!"))

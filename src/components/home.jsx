@@ -14,8 +14,8 @@ class Home extends Component {
         <Banner />
         <ProductsDisplay
           products={this.props.products}
-          cart={this.props.cart}
-          onClicking={(product) => this.props.onClicking(product)}
+          // cart={this.props.cart}
+          // onClicking={(product) => this.props.onClicking(product)}
         />
       </React.Fragment>
     );

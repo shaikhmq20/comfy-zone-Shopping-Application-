@@ -33,3 +33,28 @@ export const deleteItem = async (id) => {
     .then((res) => console.log(res))
     .catch((err) => console.log(`Error: ${err}`));
 };
+
+
+export const addItem = async (item) => {
+  const oldItem = await getOldItem(item.id);
+  if (oldItem != null)  {
+    window.alert("The Product is already in the cart! 🙂")
+    return;
+  }
+
+  console.log("Util Function ", item);
+  item.count = 1;
+  await axios
+    .post(url + "api/cart/addToCart/", item)
+    .then((res) => console.log(res))
+    .catch((err) => console.log(`Error: ${err}`));
+}
+
+export const getCartSize = async () => {
+  const cart = await axios
+    .get(url + "api/cart/getCartItems")
+    .then((res) => res.data)
+    .catch((err) => console.log(`Error: ${err}`));
+  
+  return cart.length;
+}

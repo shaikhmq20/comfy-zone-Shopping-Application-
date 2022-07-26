@@ -12,12 +12,11 @@ class ProductsDisplay extends Component {
               <Product
                 product={product}
                 key={product.id}
-                onClicking={() => this.props.onClicking(product)}
               />
             );
           })}
         </div>
-        <Cart cart={this.props.cart} />
+        <Cart/>
       </React.Fragment>
     );
   }

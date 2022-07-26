@@ -6,6 +6,7 @@ import Total from "./total";
 import { getCartItems, updateItem, deleteItem } from "../utils/cartUtil";
 import Pagination from "../common/pagination";
 import { paginate } from "../utils/paginate";
+import Cart from "./cart";
 
 class CartDisplay extends Component {
   state = {
@@ -77,7 +78,7 @@ class CartDisplay extends Component {
         /> */}
         <div id="main">
           <div id="cart-items">
-            {cart.map((cprod) => {
+            {this.state.cart.map((cprod) => {
               return (
                 <CartItem
                   cprod={cprod}
@@ -91,7 +92,6 @@ class CartDisplay extends Component {
           </div>
           <Total
             cart={this.state.cart}
-            onEmpty={() => this.props.onEmpty()}
           />
         </div>
       </React.Fragment>
