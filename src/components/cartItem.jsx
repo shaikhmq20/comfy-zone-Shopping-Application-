@@ -24,7 +24,7 @@ class CartItem extends Component {
             <div className="remove-item">
               <button
                 className="remove-btn"
-                onClick={(cprod) => this.props.onRemove(cprod)}
+                onClick={(cprod) => this.props.onRemove(cprod.id)}
               >
                 Remove
               </button>

@@ -2,7 +2,9 @@ import React, { Component } from "react";
 
 class Total extends Component {
   render() {
-    const sum = this.props.subTotal();
+    const sum = this.props.cart.reduce((sum, item) => {
+      return sum + item.price;
+    }, 0);
     if (this.props.cart.length === 0) return null;
     return (
       <div className="subtotal">
