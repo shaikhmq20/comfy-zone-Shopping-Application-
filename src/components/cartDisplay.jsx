@@ -6,7 +6,6 @@ import Total from "./total";
 import { getCartItems, updateItem, deleteItem } from "../utils/cartUtil";
 import Pagination from "../common/pagination";
 import { paginate } from "../utils/paginate";
-import Cart from "./cart";
 
 class CartDisplay extends Component {
   state = {
@@ -70,15 +69,15 @@ class CartDisplay extends Component {
           darkMode={this.props.darkMode}
           toggleTheme={() => this.props.toggleTheme()}
         />
-        {/* <Pagination
+        <Pagination
           currentPage={currentPage}
           pageSize={pageSize}
-          itemsCount={this.props.cart.length}
+          itemsCount={this.state.cart.length}
           onPageChange={(page) => this.handlePageChange(page)}
-        /> */}
+        />
         <div id="main">
           <div id="cart-items">
-            {this.state.cart.map((cprod) => {
+            {cart.map((cprod) => {
               return (
                 <CartItem
                   cprod={cprod}
