@@ -3,9 +3,10 @@ import React, { Component } from "react";
 import CartItem from "./cartItem";
 import Header from "./header";
 import Total from "./total";
-import { getCartItems, updateItem, deleteItem } from "../utils/cartUtil";
+import { getCartItems, updateItem, deleteItem, deleteAllItem } from "../utils/cartUtil";
 import Pagination from "../common/pagination";
 import { paginate } from "../utils/paginate";
+import { faThList } from "@fortawesome/free-solid-svg-icons";
 
 class CartDisplay extends Component {
   state = {
@@ -23,7 +24,7 @@ class CartDisplay extends Component {
     this.setState({ cart });
   }
 
-  async onIncrement(cprod) {
+  async handleIncrement(cprod) {
     const cart = [ ...this.state.cart ];
     const index = cart.indexOf(cprod);
     cart[index].count++;
@@ -31,21 +32,27 @@ class CartDisplay extends Component {
     await updateItem(cart[index]);
   }
 
-  async onDecrement(cprod) {
+  async handleDecrement(cprod) {
     const cart = [ ...this.state.cart ];
     const index = cart.indexOf(cprod);
     if (cart[index].count > 1)
       cart[index].count--;
     else if (cart[index].count === 1)
-      return await this.onRemove(cprod.id);
+      return await this.handleCartItemDelete(cprod.id);
     this.setState({ cart });
     await updateItem(cart[index]);
   }
 
-  async onRemove(id) {
+  async handleCartItemDelete(id) {
     const cart = [ ...this.state.cart ].filter((cprod) => cprod.id !== id);
     this.setState({ cart });
     await deleteItem(id);
+  }
+
+  async handleCartEmpty() {
+    const cart = [];
+    this.setState({ cart });
+    await deleteAllItem();
   }
 
   render() {
@@ -82,15 +89,16 @@ class CartDisplay extends Component {
                 <CartItem
                   cprod={cprod}
                   key={cprod.id}
-                  onIncrement={() => this.onIncrement(cprod)}
-                  onDecrement={() => this.onDecrement(cprod)}
-                  onRemove={() => this.onRemove(cprod.id)}
+                  onIncrement={() => this.handleIncrement(cprod)}
+                  onDecrement={() => this.handleDecrement(cprod)}
+                  onRemove={() => this.handleCartItemDelete(cprod.id)}
                 />
               );
             })}
           </div>
           <Total
             cart={this.state.cart}
+            onEmpty={() => this.handleCartEmpty()}
           />
         </div>
       </React.Fragment>

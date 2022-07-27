@@ -15,9 +15,9 @@ router.get("/:id", (req, res) => {
 
 router.post("/addToCart/", (req, res) => {
   console.log("Router: ", req.body);
-  
+
   const newCart = new Cart(req.body);
-  
+
   newCart
     .save()
     .then(() => res.status(200).json("Done!"))
@@ -32,9 +32,15 @@ router.post("/updateItem/:id", (req, res) => {
 });
 
 router.delete("/deleteItem/:id", (req, res) => {
-  Cart.findOneAndDelete({ id: req.params.id})
+  Cart.findOneAndDelete({ id: req.params.id })
     .then(() => res.json("Done Deleting!"))
     .catch((err) => res.status(400).json(`Error: ${err}`));
-})
+});
+
+router.delete("/deleteAllItem", (req, res) => {
+  Cart.deleteMany()
+    .then(() => res.json("Successfully Deleted all Cart Items!"))
+    .catch((err) => res.status(400).json(`Error: ${err}`));
+});
 
 module.exports = router;
