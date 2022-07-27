@@ -14,8 +14,6 @@ router.get("/:id", (req, res) => {
 });
 
 router.post("/addToCart/", (req, res) => {
-  console.log("Router: ", req.body);
-
   const newCart = new Cart(req.body);
 
   newCart
@@ -25,7 +23,6 @@ router.post("/addToCart/", (req, res) => {
 });
 
 router.post("/updateItem/:id", (req, res) => {
-  console.log(req.body);
   Cart.findOneAndUpdate({ id: req.body.id }, req.body)
     .then(() => res.json("Done!"))
     .catch((err) => res.status(400).json(`Error: ${err}`));

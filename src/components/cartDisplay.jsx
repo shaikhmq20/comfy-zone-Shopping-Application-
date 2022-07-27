@@ -6,7 +6,6 @@ import Total from "./total";
 import { getCartItems, updateItem, deleteItem, deleteAllItem } from "../utils/cartUtil";
 import Pagination from "../common/pagination";
 import { paginate } from "../utils/paginate";
-import { faThList } from "@fortawesome/free-solid-svg-icons";
 
 class CartDisplay extends Component {
   state = {
