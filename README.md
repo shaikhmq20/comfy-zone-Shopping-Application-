@@ -1,7 +1,7 @@
 # Comfy Zone
 
 - A basic shopping web application where you can discover product and add it to your cart
-- The website is hosted using **'Netlify'** on https://still-tundra-36424.herokuapp.com/
+- The website is hosted using **'Heroku'** on https://still-tundra-36424.herokuapp.com/
 - Responsive for both desktop and mobile screen
 
 # Technologies used
