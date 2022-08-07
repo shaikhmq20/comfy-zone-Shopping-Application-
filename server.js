@@ -2,6 +2,7 @@ const express = require("express");
 const mongoose = require("mongoose");
 const dotenv = require("dotenv");
 const cors = require("cors");
+const path = require("path");
 const app = express();
 
 const url = dotenv.config().parsed.ATLAS_URL;
@@ -18,8 +19,14 @@ mongoose.connect(
   { useNewUrlParser: true, useUnifiedTopology: true }
 );
 
+app.use(express.static(path.join(__dirname, "client/build")));
+
 const cartRouter = require("./routes/cart");
 app.use("/api/cart", cartRouter);
+
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname, 'client/build/index.html'));
+});
 
 app.listen(port, () => {
   console.log(`Listening on ${port}`);

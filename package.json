@@ -5,7 +5,8 @@
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server.js"
+    "start": "node server.js",
+    "heroku-postbuild": "cd client && npm install && npm run build"
   },
   "repository": {
     "type": "git",
@@ -17,5 +18,11 @@
   "bugs": {
     "url": "https://github.com/shaikhmq20/comfy-zone-Shopping-Application-/issues"
   },
-  "homepage": "https://github.com/shaikhmq20/comfy-zone-Shopping-Application-#readme"
+  "homepage": "https://github.com/shaikhmq20/comfy-zone-Shopping-Application-#readme",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^16.0.1",
+    "express": "^4.18.1",
+    "mongoose": "^6.5.1"
+  }
 }
