@@ -5,7 +5,8 @@ const cors = require("cors");
 const path = require("path");
 const app = express();
 
-const url = dotenv.config().parsed.ATLAS_URL;
+// const url = dotenv.config().parsed.ATLAS_URL;
+const url = process.env.ATLAS_URL;
 const port = process.env.PORT || 5000;
 
 app.use(cors());
