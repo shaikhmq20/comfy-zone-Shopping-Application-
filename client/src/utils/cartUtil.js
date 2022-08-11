@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const endpoint = "https://still-tundra-36424.herokuapp.com/api/cart/";
+const endpoint = "https://comfy-zone-shopping.herokuapp.com/api/cart/";
 
 export const getCartItems = async () => {
   const cartItems = await axios
