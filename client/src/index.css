@@ -526,3 +526,23 @@ h3 {
   border: 1px solid #ee6c4d;
   background-color: #fff;
 }
+
+#filter-button {
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  box-shadow: 0 5px 5px 2px grey;
+  background-color: #ee6c4d;
+  transition: all 0.25s;
+}
+
+#filter-button:hover {
+  transform: scale(1.02);
+}
