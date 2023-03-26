@@ -1,6 +1,6 @@
 {
   "name": "comfy-zone",
-  "homepage": ".",
+  "homepage": "https://comfy-zone-shopping-application.netlify.app",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
