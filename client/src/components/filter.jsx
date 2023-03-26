@@ -5,7 +5,12 @@ import React, { Component } from "react";
 class Filter extends Component {
   render() {
     return (
-      <div id="filter-button">
+      <div
+        id="filter-button"
+        onClick={() => {
+          this.props.history.push("/");
+        }}
+      >
         <FontAwesomeIcon icon={faFilter} size="xl" />
       </div>
     );

@@ -33,13 +33,36 @@ class App extends Component {
   render() {
     return (
       <BrowserRouter>
-        <Route path="/" exact>
-          <Home
+        <Route
+          path="/"
+          exact
+          render={(props) => (
+            <Home
+              products={this.state.products}
+              darkMode={this.state.darkMode}
+              toggleTheme={() => this.toggleDarkMode()}
+              {...props}
+            />
+          )}
+        />
+        <Route
+          path="/:category"
+          exact
+          render={(props) => (
+            <Home
+              products={this.state.products}
+              darkMode={this.state.darkMode}
+              toggleTheme={() => this.toggleDarkMode()}
+              {...props}
+            />
+          )}
+        />
+        {/* <Home
             products={this.state.products}
             darkMode={this.state.darkMode}
             toggleTheme={() => this.toggleDarkMode()}
           />
-        </Route>
+        </Route> */}
         <Route path="/yourCart">
           <CartDisplay
             darkMode={this.state.darkMode}

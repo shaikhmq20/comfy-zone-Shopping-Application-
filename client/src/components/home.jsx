@@ -26,6 +26,7 @@ class Home extends Component {
   }
 
   render() {
+    console.log(this.props);
     return (
       <React.Fragment>
         <Header
@@ -35,10 +36,12 @@ class Home extends Component {
         <Banner />
         <ProductsDisplay
           products={this.props.products}
+          categories={this.state.categories}
+          {...this.props}
           // cart={this.props.cart}
           // onClicking={(product) => this.props.onClicking(product)}
         />
-        <Filter />
+        <Filter {...this.props} />
       </React.Fragment>
     );
   }
