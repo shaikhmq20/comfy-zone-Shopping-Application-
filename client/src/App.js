@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import Home from "./components/home";
 import CartDisplay from "./components/cartDisplay";
 import "./App.css";
-import { BrowserRouter, Route } from "react-router-dom";
+import { BrowserRouter, Route, Switch } from "react-router-dom";
 import getProducts from "./products";
 
 class App extends Component {
@@ -33,43 +33,42 @@ class App extends Component {
   render() {
     return (
       <BrowserRouter>
-        <Route
-          path="/"
-          exact
-          render={(props) => (
-            <Home
-              products={this.state.products}
-              darkMode={this.state.darkMode}
-              toggleTheme={() => this.toggleDarkMode()}
-              {...props}
-            />
-          )}
-        />
-        <Route
-          path="/:category"
-          exact
-          render={(props) => (
-            <Home
-              products={this.state.products}
-              darkMode={this.state.darkMode}
-              toggleTheme={() => this.toggleDarkMode()}
-              {...props}
-            />
-          )}
-        />
-        {/* <Home
-            products={this.state.products}
-            darkMode={this.state.darkMode}
-            toggleTheme={() => this.toggleDarkMode()}
+        <Switch>
+          <Route
+            path="/"
+            exact
+            render={(props) => (
+              <Home
+                products={this.state.products}
+                darkMode={this.state.darkMode}
+                toggleTheme={() => this.toggleDarkMode()}
+                {...props}
+              />
+            )}
           />
-        </Route> */}
-        <Route path="/yourCart">
-          <CartDisplay
-            darkMode={this.state.darkMode}
-            product={this.state.products}
-            toggleTheme={() => this.toggleDarkMode()}
+          <Route
+            path="/yourCart"
+            render={(props) => (
+              <CartDisplay
+                darkMode={this.state.darkMode}
+                product={this.state.products}
+                toggleTheme={() => this.toggleDarkMode()}
+                {...props}
+              />
+            )}
           />
-        </Route>
+          <Route
+            path="/:category"
+            render={(props) => (
+              <Home
+                products={this.state.products}
+                darkMode={this.state.darkMode}
+                toggleTheme={() => this.toggleDarkMode()}
+                {...props}
+              />
+            )}
+          />
+        </Switch>
       </BrowserRouter>
     );
   }

@@ -5,13 +5,11 @@ import axios from "axios";
 
 class ProductsDisplay extends Component {
   state = {
-    category: "",
     products: [],
   };
 
   async componentDidMount() {
-    this.setState({ category: this.props.match.params.category })
-    const products = await axios
+    await axios
       .get("https://dummyjson.com/products/?limit=100")
       .then((res) => res.data)
       .then((data) => this.setState({ products: data.products }));
@@ -19,10 +17,9 @@ class ProductsDisplay extends Component {
 
   filterProducts = (category) => {
     let products = [...this.state.products];
-    if (this.state.category)
-      products = this.state.products.filter(
-        (prod) => prod.category === this.state.category
-      );
+    products = this.state.products.filter(
+      (prod) => prod.category === category
+    );
 
     return products;
   };
@@ -32,11 +29,15 @@ class ProductsDisplay extends Component {
   };
 
   render() {
-    const { products, category } = this.state;
+    const { products } = this.state;
+    const { category } = this.props;
+    console.log(category);
     let filteredProducts = [...products];
 
     if (this.checkCategory(category))
       filteredProducts = this.filterProducts(category);
+
+    console.log(filteredProducts);
 
     return (
       <React.Fragment>
