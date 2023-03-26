@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import Home from "./components/home";
 import CartDisplay from "./components/cartDisplay";
 import "./App.css";
-import { BrowserRouter, Route, Switch } from "react-router-dom";
+import { HashRouter as Router, Route, Switch } from "react-router-dom";
 import getProducts from "./products";
 
 class App extends Component {
@@ -32,7 +32,7 @@ class App extends Component {
 
   render() {
     return (
-      <BrowserRouter>
+      <Router>
         <Switch>
           <Route
             path="/"
@@ -69,7 +69,7 @@ class App extends Component {
             )}
           />
         </Switch>
-      </BrowserRouter>
+      </Router>
     );
   }
 }
