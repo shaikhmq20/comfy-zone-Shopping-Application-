@@ -8,7 +8,7 @@ class Filter extends Component {
       <div
         id="filter-button"
         onClick={() => {
-          this.props.history.push("/");
+          this.props.history.push("/home");
         }}
       >
         <FontAwesomeIcon icon={faFilter} size="xl" />

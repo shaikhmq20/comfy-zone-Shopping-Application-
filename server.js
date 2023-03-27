@@ -23,6 +23,8 @@ app.use(express.static(path.join(__dirname, "client/build")));
 
 const cartRouter = require("./routes/cart");
 app.use("/api/cart", cartRouter);
+const LoginRouter =require("./routes/login");
+app.use("/api/login",LoginRouter);
 
 app.get('*', (req, res) => {
   res.sendFile(path.join(__dirname, 'client/build/index.html'));

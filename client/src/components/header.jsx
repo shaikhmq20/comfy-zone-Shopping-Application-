@@ -14,7 +14,7 @@ class Header extends Component {
     return (
       <header>
         <h1>
-          <Link to="/">
+          <Link to="/home">
             Comfy <span>Zone</span>
           </Link>
         </h1>

@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import Home from "./components/home";
+import Login from "./components/Login";
 import CartDisplay from "./components/cartDisplay";
 import "./App.css";
 import { HashRouter as Router, Route, Switch } from "react-router-dom";
@@ -35,7 +36,7 @@ class App extends Component {
       <Router basename={process.env.PUBLIC_URL}>
         <Switch>
           <Route
-            path="/"
+            path="/home"
             exact
             render={(props) => (
               <Home
@@ -44,6 +45,16 @@ class App extends Component {
                 toggleTheme={() => this.toggleDarkMode()}
                 {...props}
               />
+            )}
+          />
+           <Route
+            path="/"
+            exact
+            render={(props) => (
+              <Login darkMode={this.state.darkMode}
+              toggleTheme={() => this.toggleDarkMode()}
+              {...props}/>
+              
             )}
           />
           <Route

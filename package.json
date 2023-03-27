@@ -27,10 +27,18 @@
   },
   "homepage": "https://github.com/shaikhmq20/comfy-zone-Shopping-Application-#readme",
   "dependencies": {
+    "@material-ui/core": "^4.12.4",
+    "bcryptjs": "^2.4.3",
+    "body-parser": "^1.20.2",
     "concurrently": "^7.3.0",
     "cors": "^2.8.5",
     "dotenv": "^16.0.1",
     "express": "^4.18.1",
-    "mongoose": "^6.5.1"
+    "is-empty": "^1.2.0",
+    "jsonwebtoken": "^9.0.0",
+    "mongoose": "^6.5.1",
+    "passport": "^0.6.0",
+    "passport-jwt": "^4.0.1",
+    "validator": "^13.9.0"
   }
 }
