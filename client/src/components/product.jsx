@@ -8,17 +8,20 @@ class Product extends Component {
   }
 
   render() {
-    const { images: image, title: name, price } = this.props.product;
+    const { thumbnail, title, price } = this.props.product;
     return (
       <React.Fragment>
         <div className="product-container">
           <div
             className="product-image"
-            style={{ backgroundImage: `url(${image[0]})`, backgroundSize: "cover"}}
+            style={{
+              backgroundImage: `url(${thumbnail})`,
+              backgroundSize: "cover",
+            }}
           >
             {/* <img src={image[0]} alt="" /> */}
           </div>
-          <div className="product-name">{name}</div>
+          <div className="product-name">{title}</div>
           <div className="product-price">${price}</div>
           <span
             onClick={() => {
