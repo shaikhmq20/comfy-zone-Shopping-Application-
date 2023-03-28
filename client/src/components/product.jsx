@@ -19,7 +19,7 @@ class Product extends Component {
             {/* <img src={image[0]} alt="" /> */}
           </div>
           <div className="product-name">{name}</div>
-          <div className="product-price">$ {price}</div>
+          <div className="product-price">${price}</div>
           <span
             onClick={() => {
               this.onClicking(this.props.product);

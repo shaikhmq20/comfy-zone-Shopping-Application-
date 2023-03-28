@@ -358,6 +358,10 @@ h3 {
   margin-right: 30px;
 }
 
+.item-details {
+  padding-left: 15px;
+}
+
 .item-image img {
   border-radius: 8px;
 }
