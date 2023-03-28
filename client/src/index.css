@@ -267,7 +267,7 @@ h3 {
 
 .product-image:hover {
   filter: contrast(0.8);
-  box-shadow: 0 0 8px grey;
+  box-shadow: 0 0 10px #e7e2dd;
 }
 
 .product-name {
@@ -349,7 +349,7 @@ h3 {
   display: grid;
   grid-template-columns: 300px 40%;
   grid-template-rows: 192px;
-  box-shadow: -5px 5px 10px 2px grey;
+  box-shadow: -5px 5px 10px 2px #e7e2dd;
 }
 
 .counter {
