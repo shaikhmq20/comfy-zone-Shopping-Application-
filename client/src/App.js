@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import Home from "./components/home";
 import Login from "./components/Login";
+import Signup from "./components/sup";
 import CartDisplay from "./components/cartDisplay";
 import "./App.css";
 import { HashRouter as Router, Route, Switch } from "react-router-dom";
@@ -52,6 +53,16 @@ class App extends Component {
             exact
             render={(props) => (
               <Login darkMode={this.state.darkMode}
+              toggleTheme={() => this.toggleDarkMode()}
+              {...props}/>
+              
+            )}
+          />
+             <Route
+            path="/signup"
+            exact
+            render={(props) => (
+              <Signup darkMode={this.state.darkMode}
               toggleTheme={() => this.toggleDarkMode()}
               {...props}/>
               
