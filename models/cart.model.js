@@ -3,10 +3,20 @@ const Schema = mongoose.Schema;
 
 const cartSchema = new Schema(
   {
-    name: String,
-    price: Number,
-    image: String,
     id: Number,
+    title: String,
+    description: String,
+    price: Number,
+    discountPercentage: Number,
+    rating: Number,
+    stock: Number,
+    brand: String,
+    category: String,
+    thumbnail: String,
+    images: Array,
+    // name: String,
+    // price: Number,
+    // image: String,
     count: Number,
   },
   { timestamps: true }

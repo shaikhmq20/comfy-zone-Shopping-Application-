@@ -3,16 +3,23 @@ import Counter from "./counter";
 
 class CartItem extends Component {
   render() {
-    const { image, name, price } = this.props.cprod;
+    const { title, thumbnail, price } = this.props.cprod;
 
     return (
       <div className="cart-item">
-        <div className="item-image">
-          <img src={image} alt={name} />
+        <div
+          className="item-image"
+          style={{
+            backgroundImage: `url(${thumbnail})`,
+            backgroundSize: "cover",
+            borderRadius: "8px",
+          }}
+        >
+          {/* <img src={images[0]} alt={title} /> */}
         </div>
         <div className="item-details">
-          <div className="item-name">{name}</div>
-          <div className="item-price">₹ {price}</div>
+          <div className="item-name">{title}</div>
+          <div className="item-price">${price}</div>
           <div id="response">
             <div className="item-count">
               <Counter
