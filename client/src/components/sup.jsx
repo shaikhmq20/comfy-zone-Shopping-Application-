@@ -4,8 +4,9 @@ import AddCircleOutlineOutlinedIcon from '@material-ui/icons/AddCircleOutlineOut
 import axios from "axios";
 import "./signup.css";
 import Header from "./header";
-
+import { useHistory } from 'react-router-dom';
 const Signup = (props) => {
+    const history=useHistory();
 
     const [data, setData] = useState({
 		Firstname: "",
@@ -27,6 +28,7 @@ const Signup = (props) => {
 			const { data: res } = await axios.post(url, data);
 			
 			alert(res.message);
+            history.push("/");
              
 		} catch (error) {
 			if (
@@ -88,7 +90,11 @@ const Signup = (props) => {
 							value={data.Password} variant="outlined" style={{marginBottom:"12px"}}  fullWidth label='Password'/>
                   
                    {error && <center><div className="error_msg">{error}</div></center>}
-                    <Button type='submit' variant='contained' color='primary'>Sign up</Button>
+                    <Button type='submit' variant='contained' color='primary' style={{marginRight:"10px"}}>Sign up</Button>
+                    <Button variant='contained' color='primary' onClick={()=>{
+                        history.push("/");
+        
+                    }}>Login</Button>
                 </form>
             </Paper>
         </Grid>
