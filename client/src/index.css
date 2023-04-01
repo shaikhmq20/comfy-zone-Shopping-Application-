@@ -558,6 +558,16 @@ h3 {
   transform: scale(1.02);
 }
 
+#filter-dropdown-hidden {
+  display: none;
+  /* border: 2px solid #ee6c4d;
+  border-radius: 8px;
+  height: 200px;
+  list-style-type: none;
+  color: #ee6c4d;
+  overflow-y: scroll;  */
+}
+
 #filter-dropdown {
   padding-left: 0;
   /* background-color: #e7e2dd; */
