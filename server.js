@@ -29,6 +29,8 @@ const userRoutes=require("./routes/users");
 app.use("/api/user",userRoutes);
 const authRoutes=require("./routes/auth");
 app.use("/api/auth",authRoutes);
+const paymentRoutes=require("./routes/payment");
+app.use("/api/payment",paymentRoutes);
 
 app.get('*', (req, res) => {
   res.sendFile(path.join(__dirname, 'client/build/index.html'));
