@@ -4,6 +4,7 @@ import Razorpay from 'razorpay';
 
 class Total extends Component {
   render() {
+    
     const initPayment=(data)=>{
       const options={
         key:process.env.KEY_ID,
@@ -36,6 +37,7 @@ class Total extends Component {
         const{data}=await axios.post(orderUrl,{amount:price});
         console.log(data);
         initPayment(data.data);
+
       }
       catch(error){
         console.log(error);
@@ -55,7 +57,7 @@ class Total extends Component {
             Empty Cart
           </button>
           <button style={{marginLeft:"12px"}} id="empty-cart" onClick={()=>{handlePayment(Number(sum.toFixed(2)));
-          this.props.onEmpty()}} >
+          }}>
             Buy Now
           </button>
         </div>
