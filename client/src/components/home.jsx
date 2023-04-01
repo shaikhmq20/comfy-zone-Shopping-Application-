@@ -45,12 +45,12 @@ class Home extends Component {
           categories={this.state.categories}
           category={this.state.category}
           {...this.props}
-          // cart={this.props.cart}
-          // onClicking={(product) => this.props.onClicking(product)}
+        // cart={this.props.cart}
+        // onClicking={(product) => this.props.onClicking(product)}
         />
         <div id="filter">
-          <FilterDropDown {...this.props} categories={this.state.categories} />
-          <Filter {...this.props} />
+          {/* <FilterDropDown {...this.props} categories={this.state.categories} /> */}
+          <Filter {...this.props} categories={this.state.categories} />
         </div>
       </React.Fragment>
     );
