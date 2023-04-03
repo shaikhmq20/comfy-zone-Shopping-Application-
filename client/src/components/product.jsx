@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 
 import { addItem } from "../utils/cartUtil";
+import Star from "./star";
 
 class Product extends Component {
   async onClicking(item) {
@@ -8,7 +9,7 @@ class Product extends Component {
   }
 
   render() {
-    const { thumbnail, title, price } = this.props.product;
+    const { thumbnail, title, price,rating } = this.props.product;
     return (
       <React.Fragment>
         <div className="product-container">
@@ -22,7 +23,9 @@ class Product extends Component {
             {/* <img src={image[0]} alt="" /> */}
           </div>
           <div className="product-name">{title}</div>
+          <Star rating={rating}></Star>
           <div className="product-price">${price}</div>
+
           <span
             onClick={() => {
               this.onClicking(this.props.product);
