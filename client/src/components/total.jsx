@@ -56,7 +56,7 @@ class Total extends Component {
           <button id="empty-cart" onClick={() => this.props.onEmpty()}>
             Empty Cart
           </button>
-          <button style={{marginLeft:"12px"}} id="empty-cart" onClick={()=>{handlePayment(Number(sum.toFixed(2)));
+          <button style={{marginLeft:"12px"}} id="empty-cart" onClick={()=>{handlePayment(Number(sum.toFixed(2)*71));
           }}>
             Buy Now
           </button>
