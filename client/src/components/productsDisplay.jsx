@@ -12,7 +12,6 @@ class ProductsDisplay extends Component {
     products: [],
     sortVisibility: false,
     sortBy: "",
-    order: "asc",
   };
 
   async componentDidMount() {
@@ -38,11 +37,11 @@ class ProductsDisplay extends Component {
     this.setState({ sortVisibility });
   }
 
-  handleSortBy = (products, order) => {
+  handleSortBy = (products) => {
     if (this.state.sortBy === "")
       return products;
     let sortedProducts = [...products];
-    return _.orderBy(sortedProducts, this.state.sortBy, order);
+    return _.orderBy(sortedProducts, this.state.sortBy, this.state.sortBy === "rating" ? "desc" : "asc");
   }
 
   render() {
@@ -53,7 +52,7 @@ class ProductsDisplay extends Component {
     if (this.checkCategory(category))
       filteredProducts = this.filterProducts(category);
 
-    filteredProducts = this.handleSortBy(filteredProducts, this.state.order);
+    filteredProducts = this.handleSortBy(filteredProducts);
     const sortVisibility = !this.state.sortVisibility ? { display: "none" } : {};
 
     return (
