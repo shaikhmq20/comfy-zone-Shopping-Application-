@@ -45,8 +45,8 @@ class Home extends Component {
           categories={this.state.categories}
           category={this.state.category}
           {...this.props}
-        // cart={this.props.cart}
-        // onClicking={(product) => this.props.onClicking(product)}
+          // cart={this.props.cart}
+          // onClicking={(product) => this.props.onClicking(product)}
         />
         <div id="filter">
           {/* <FilterDropDown {...this.props} categories={this.state.categories} /> */}

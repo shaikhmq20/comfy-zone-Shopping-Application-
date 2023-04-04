@@ -3,7 +3,7 @@ import React, { Component } from "react";
 class FilterDropDown extends Component {
   state = {
     filterVisible: false,
-  }
+  };
 
   capitalize = (word) => {
     let firstLetter = word.charAt(0);
@@ -12,8 +12,10 @@ class FilterDropDown extends Component {
   };
 
   getIdForDropDown = () => {
-    return this.state.filterVisible ? "filter-dropdown" : "filter-dropdown-hidden";
-  }
+    return this.state.filterVisible
+      ? "filter-dropdown"
+      : "filter-dropdown-hidden";
+  };
 
   render() {
     return (

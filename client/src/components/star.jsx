@@ -1,33 +1,33 @@
 import React from "react";
-import {AiOutlineStar} from "react-icons/ai";
-import {FaStar,FaStarHalfAlt} from "react-icons/fa"; 
-import styled from "styled-components"
+import { AiOutlineStar } from "react-icons/ai";
+import { FaStar, FaStarHalfAlt } from "react-icons/fa";
+import styled from "styled-components";
 
-
-const Star=({rating})=>{
-    const ratingStar =Array.from({length:5},(elem,index)=>{
-        let number=index+0.5;
-        return(
-            <span key={index}>
-                {
-                    rating>= index+1?<FaStar className="icon"/>:rating>=number?<FaStarHalfAlt className="icon"/>:<AiOutlineStar className="icon"/>
-                }
-
-            </span>
-        )
-
-         
-
-    })
+const Star = ({ rating }) => {
+  const ratingStar = Array.from({ length: 5 }, (elem, index) => {
+    let number = index + 0.5;
     return (
-        <Wrapper>
-            <div className="icon-style">
-                <span style={{marginTop:0,fontWeight:"bold",color: "#ee6c4d"}}>{rating}&nbsp;</span>
-                {ratingStar}
-            </div>
-
-        </Wrapper>
+      <span key={index}>
+        {rating >= index + 1 ? (
+          <FaStar className="icon" />
+        ) : rating >= number ? (
+          <FaStarHalfAlt className="icon" />
+        ) : (
+          <AiOutlineStar className="icon" />
+        )}
+      </span>
     );
+  });
+  return (
+    <Wrapper>
+      <div className="icon-style">
+        <span style={{ marginTop: 0, fontWeight: "bold", color: "#ee6c4d" }}>
+          {rating}&nbsp;
+        </span>
+        {ratingStar}
+      </div>
+    </Wrapper>
+  );
 };
 const Wrapper = styled.section`
   .icon-style {
@@ -49,4 +49,4 @@ const Wrapper = styled.section`
   }
 `;
 
-export default Star
+export default Star;

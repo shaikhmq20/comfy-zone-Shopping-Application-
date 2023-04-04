@@ -1,10 +1,9 @@
 import React, { Component } from "react";
 import axios from "axios";
-import Razorpay from 'razorpay';
+import Razorpay from "razorpay";
 
 class Total extends Component {
   render() {
-
     const initPayment = (data) => {
       const options = {
         key: process.env.KEY_ID,
@@ -17,34 +16,27 @@ class Total extends Component {
             const verifyUrl = "http://localhost:5000/api/payment/verify";
             const { data } = await axios.post(verifyUrl, response);
             console.log(data);
-
           } catch (error) {
             console.log(error);
           }
         },
         theme: {
           color: "#3399cc",
-        }
-
-
+        },
       };
       const rzp1 = new window.Razorpay(options);
       rzp1.open();
-    }
+    };
     const handlePayment = async (price) => {
       try {
         const orderUrl = "http://localhost:5000/api/payment/orders";
         const { data } = await axios.post(orderUrl, { amount: price });
         console.log(data);
         initPayment(data.data);
-
-      }
-      catch (error) {
+      } catch (error) {
         console.log(error);
       }
-
-
-    }
+    };
     const sum = this.props.cart.reduce((sum, item) => {
       return sum + item.price * item.count;
     }, 0);
@@ -56,9 +48,13 @@ class Total extends Component {
           <button id="empty-cart" onClick={() => this.props.onEmpty()}>
             Empty Cart
           </button>
-          <button style={{ marginLeft: "12px" }} id="empty-cart" onClick={() => {
-            handlePayment(Number(sum.toFixed(2) * 71));
-          }}>
+          <button
+            style={{ marginLeft: "12px" }}
+            id="empty-cart"
+            onClick={() => {
+              handlePayment(Number(sum.toFixed(2) * 71));
+            }}
+          >
             Buy Now
           </button>
         </div>

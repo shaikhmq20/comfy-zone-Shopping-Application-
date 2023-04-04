@@ -17,12 +17,10 @@ class Header extends Component {
           <Link to="/home">
             Comfy <span>Zone</span>
           </Link>
-
         </h1>
         <div id="theme">
           <i className={icon} onClick={() => this.props.toggleTheme()}></i>
         </div>
-      
       </header>
     );
   }

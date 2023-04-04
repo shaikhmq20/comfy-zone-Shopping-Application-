@@ -3,7 +3,12 @@ import React, { Component } from "react";
 import CartItem from "./cartItem";
 import Header from "./header";
 import Total from "./total";
-import { getCartItems, updateItem, deleteItem, deleteAllItem } from "../utils/cartUtil";
+import {
+  getCartItems,
+  updateItem,
+  deleteItem,
+  deleteAllItem,
+} from "../utils/cartUtil";
 import Pagination from "../common/pagination";
 import { paginate } from "../utils/paginate";
 
@@ -24,7 +29,7 @@ class CartDisplay extends Component {
   }
 
   async handleIncrement(cprod) {
-    const cart = [ ...this.state.cart ];
+    const cart = [...this.state.cart];
     const index = cart.indexOf(cprod);
     cart[index].count++;
     this.setState({ cart });
@@ -32,10 +37,9 @@ class CartDisplay extends Component {
   }
 
   async handleDecrement(cprod) {
-    const cart = [ ...this.state.cart ];
+    const cart = [...this.state.cart];
     const index = cart.indexOf(cprod);
-    if (cart[index].count > 1)
-      cart[index].count--;
+    if (cart[index].count > 1) cart[index].count--;
     else if (cart[index].count === 1)
       return await this.handleCartItemDelete(cprod.id);
     this.setState({ cart });
@@ -43,7 +47,7 @@ class CartDisplay extends Component {
   }
 
   async handleCartItemDelete(id) {
-    const cart = [ ...this.state.cart ].filter((cprod) => cprod.id !== id);
+    const cart = [...this.state.cart].filter((cprod) => cprod.id !== id);
     this.setState({ cart });
     await deleteItem(id);
   }

@@ -48,24 +48,26 @@ class App extends Component {
               />
             )}
           />
-           <Route
+          <Route
             path="/"
             exact
             render={(props) => (
-              <Login darkMode={this.state.darkMode}
-              toggleTheme={() => this.toggleDarkMode()}
-              {...props}/>
-              
+              <Login
+                darkMode={this.state.darkMode}
+                toggleTheme={() => this.toggleDarkMode()}
+                {...props}
+              />
             )}
           />
-             <Route
+          <Route
             path="/signup"
             exact
             render={(props) => (
-              <Signup darkMode={this.state.darkMode}
-              toggleTheme={() => this.toggleDarkMode()}
-              {...props}/>
-              
+              <Signup
+                darkMode={this.state.darkMode}
+                toggleTheme={() => this.toggleDarkMode()}
+                {...props}
+              />
             )}
           />
           <Route

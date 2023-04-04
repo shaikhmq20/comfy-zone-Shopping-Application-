@@ -1,13 +1,52 @@
-import { faFilter, faMobileScreenButton, faLaptop, faSprayCanSparkles, faHandDots, faPepperHot, faCouch, faFan, faShirt, faShoePrints, faClock, faBagShopping, faGem, faGlasses, faMotorcycle, faLightbulb, faCar } from "@fortawesome/free-solid-svg-icons";
+import {
+  faFilter,
+  faMobileScreenButton,
+  faLaptop,
+  faSprayCanSparkles,
+  faHandDots,
+  faPepperHot,
+  faCouch,
+  faFan,
+  faShirt,
+  faShoePrints,
+  faClock,
+  faBagShopping,
+  faGem,
+  faGlasses,
+  faMotorcycle,
+  faLightbulb,
+  faCar,
+} from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React, { Component } from "react";
 
-const icons = [faMobileScreenButton, faLaptop, faSprayCanSparkles, faHandDots, faPepperHot, faFan, faCouch, faShirt, faShirt, faShoePrints, faShirt, faShoePrints, faClock, faClock, faBagShopping, faGem, faGlasses, faCar, faMotorcycle, faLightbulb]
+const icons = [
+  faMobileScreenButton,
+  faLaptop,
+  faSprayCanSparkles,
+  faHandDots,
+  faPepperHot,
+  faFan,
+  faCouch,
+  faShirt,
+  faShirt,
+  faShoePrints,
+  faShirt,
+  faShoePrints,
+  faClock,
+  faClock,
+  faBagShopping,
+  faGem,
+  faGlasses,
+  faCar,
+  faMotorcycle,
+  faLightbulb,
+];
 
 class Filter extends Component {
   state = {
     filterVisible: false,
-  }
+  };
 
   capitalize = (word) => {
     let firstLetter = word.charAt(0);
@@ -16,14 +55,16 @@ class Filter extends Component {
   };
 
   getIdForDropDown = () => {
-    return this.state.filterVisible ? "filter-dropdown" : "filter-dropdown-hidden";
-  }
+    return this.state.filterVisible
+      ? "filter-dropdown"
+      : "filter-dropdown-hidden";
+  };
 
   handleFilterClick = () => {
     let filterVisible = this.state.filterVisible;
     filterVisible = !filterVisible;
     this.setState({ filterVisible });
-  }
+  };
 
   render() {
     return (
@@ -39,15 +80,14 @@ class Filter extends Component {
                   <FontAwesomeIcon icon={icons[index]} />
                 </center>
               </div>
-              <div style={{ marginLeft: "5px" }}>{this.capitalize(category)}</div>
+              <div style={{ marginLeft: "5px" }}>
+                {this.capitalize(category)}
+              </div>
             </li>
           ))}
         </ul>
-        <div
-          id="filter-button"
-          onClick={() => this.handleFilterClick()}
-        >
-          <FontAwesomeIcon icon={faFilter} size="xl"/>
+        <div id="filter-button" onClick={() => this.handleFilterClick()}>
+          <FontAwesomeIcon icon={faFilter} size="xl" />
         </div>
       </>
     );

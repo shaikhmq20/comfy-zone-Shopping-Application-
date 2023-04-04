@@ -17,9 +17,7 @@ class ProductsDisplay extends Component {
 
   filterProducts = (category) => {
     let products = [...this.state.products];
-    products = this.state.products.filter(
-      (prod) => prod.category === category
-    );
+    products = this.state.products.filter((prod) => prod.category === category);
 
     return products;
   };

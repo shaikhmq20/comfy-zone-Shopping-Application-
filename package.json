@@ -9,6 +9,9 @@
     "server": "nodemon server.js",
     "client": "cd client && npm start",
     "dev": "concurrently \"npm run server\" \"npm run client\"",
+    "format-jsx": "prettier --write \"client/**/*.jsx\"",
+    "format-js": "prettier --write \"client/**/*.js\"",
+    "format-backend": "prettier --write \"models/**/*.js\" \"routes/**/*.js\" server.js",
     "heroku-postbuild": "cd client && npm install && npm run build"
   },
   "engines": {
@@ -45,5 +48,8 @@
     "passport-jwt": "^4.0.1",
     "razorpay": "^2.8.6",
     "validator": "^13.9.0"
+  },
+  "devDependencies": {
+    "prettier": "^2.8.7"
   }
 }
