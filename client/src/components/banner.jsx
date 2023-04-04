@@ -5,7 +5,7 @@ class Banner extends Component {
     return (
       <div id="banner">
         <div id="banner-el">
-          <div id="banner-heading">FURNITURE COLLECTION</div>
+          <div id="banner-heading">ENJOY SHOPPING</div>
           <div id="banner-button">
             <a className="buttons" href="#products-container">
               SHOP NOW

@@ -130,8 +130,9 @@ header a {
   align-items: center;
   width: 100%;
   height: 700px;
-  background-image: url("images/banner\ \(Custom\).jpg");
-  background-size: cover;
+  /* background-image: url("images/banner\ \(Custom\).jpg"); */
+  background-image: url("images/ecommerce-banner.jpg");
+  /* background-size: cover; */
 }
 
 #banner-el {
