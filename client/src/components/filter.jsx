@@ -47,7 +47,7 @@ class Filter extends Component {
           id="filter-button"
           onClick={() => this.handleFilterClick()}
         >
-          <FontAwesomeIcon icon={faFilter} size="xl" />
+          <FontAwesomeIcon icon={faFilter} size="xl"/>
         </div>
       </>
     );
