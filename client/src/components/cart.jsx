@@ -13,7 +13,6 @@ class Cart extends Component {
   }
 
   render() {
-    console.log(this.props.size);
     return (
       <div id="cart">
         <div id="cart-logo">

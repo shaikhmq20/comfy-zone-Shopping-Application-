@@ -2,10 +2,17 @@ import React, { Component } from "react";
 import Product from "./product";
 import Cart from "./cart";
 import axios from "axios";
+import _ from "lodash"
+
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faArrowUpWideShort } from "@fortawesome/free-solid-svg-icons";
 
 class ProductsDisplay extends Component {
   state = {
     products: [],
+    sortVisibility: false,
+    sortBy: "",
+    order: "asc",
   };
 
   async componentDidMount() {
@@ -18,7 +25,6 @@ class ProductsDisplay extends Component {
   filterProducts = (category) => {
     let products = [...this.state.products];
     products = this.state.products.filter((prod) => prod.category === category);
-
     return products;
   };
 
@@ -26,20 +32,42 @@ class ProductsDisplay extends Component {
     return this.props.categories.find((cat) => cat === category);
   };
 
+  handleSortVisibility = () => {
+    let sortVisibility = this.state.sortVisibility;
+    sortVisibility = !sortVisibility;
+    this.setState({ sortVisibility });
+  }
+
+  handleSortBy = (products, order) => {
+    if (this.state.sortBy === "")
+      return products;
+    let sortedProducts = [...products];
+    return _.orderBy(sortedProducts, this.state.sortBy, order);
+  }
+
   render() {
     const { products } = this.state;
     const { category } = this.props;
-    console.log(category);
     let filteredProducts = [...products];
 
     if (this.checkCategory(category))
       filteredProducts = this.filterProducts(category);
 
-    console.log(filteredProducts);
+    filteredProducts = this.handleSortBy(filteredProducts, this.state.order);
+    const sortVisibility = !this.state.sortVisibility ? { display: "none" } : {};
 
     return (
       <React.Fragment>
         <h3>Our Products</h3>
+        <div className="sort">
+          <button className="sort-icon" onClick={() => this.handleSortVisibility()}>
+            <FontAwesomeIcon icon={faArrowUpWideShort} /> SORT BY
+            <ul className="sort-dropdown" style={sortVisibility}>
+              <li onClick={() => this.setState({ sortBy: "price" })}>Price</li>
+              <li onClick={() => this.setState({ sortBy: "rating" })}>Rating</li>
+            </ul>
+          </button>
+        </div>
         <div id="products-container">
           {filteredProducts.map((product) => {
             return <Product product={product} key={product.id} />;
