@@ -274,6 +274,9 @@ h3 {
 }
 
 .product-name {
+  width: 250px;
+  white-space: nowrap;
+  overflow-x: hidden;
   font-size: 18px;
   font-weight: 600;
   padding: 10px;

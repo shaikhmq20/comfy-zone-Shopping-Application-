@@ -9,7 +9,7 @@ class Product extends Component {
   }
 
   render() {
-    const { thumbnail, title, price,rating } = this.props.product;
+    const { thumbnail, title, price, rating } = this.props.product;
     return (
       <React.Fragment>
         <div className="product-container">
@@ -22,7 +22,9 @@ class Product extends Component {
           >
             {/* <img src={image[0]} alt="" /> */}
           </div>
-          <div className="product-name">{title}</div>
+          <center>
+            <div className="product-name">{title}</div>
+          </center>
           <Star rating={rating}></Star>
           <div className="product-price">${price}</div>
 
