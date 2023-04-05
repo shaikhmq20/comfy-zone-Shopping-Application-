@@ -659,7 +659,7 @@ h3 {
   width: 40px;
 }
 
-#filter-dropdown>li {
+.filter-dropdown-item {
   display: flex;
   /* flex-direction: column; */
   cursor: pointer;
@@ -671,7 +671,19 @@ h3 {
   transition: all 0.15s;
 }
 
-#filter-dropdown>li:hover {
+.filter-dropdown-item:hover {
   background-color: #e9e8e7;
   color: #000;
+}
+
+.filter-dropdown-active {
+  display: flex;
+  /* flex-direction: column; */
+  cursor: pointer;
+  color: #000;
+  background-color: #e9e8e7;
+  padding: 10px 20px;
+  font-weight: bold;
+  font-size: 1.2rem;
+  list-style-type: none;
 }

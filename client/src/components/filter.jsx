@@ -60,6 +60,10 @@ class Filter extends Component {
       : "filter-dropdown-hidden";
   };
 
+  getClassForListItem = (category) => {
+    return this.props.category === category ? "filter-dropdown-active" : "filter-dropdown-item";
+  }
+
   handleFilterClick = () => {
     let filterVisible = this.state.filterVisible;
     filterVisible = !filterVisible;
@@ -74,6 +78,7 @@ class Filter extends Component {
             <li
               key={index}
               onClick={() => this.props.history.push(`/${category}`)}
+              className={this.getClassForListItem(category)}
             >
               <div class="filter-icons">
                 <center>

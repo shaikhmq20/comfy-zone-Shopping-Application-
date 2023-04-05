@@ -48,7 +48,7 @@ class Home extends Component {
         // onClicking={(product) => this.props.onClicking(product)}
         />
         <div id="filter">
-          <Filter {...this.props} categories={this.state.categories} />
+          <Filter {...this.props} category={this.state.category} categories={this.state.categories} />
         </div>
       </React.Fragment>
     );
