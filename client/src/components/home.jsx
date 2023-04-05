@@ -4,7 +4,6 @@ import Banner from "./banner";
 import ProductsDisplay from "./productsDisplay";
 import Filter from "./filter";
 import axios from "axios";
-import FilterDropDown from "./filterDropDown";
 
 class Home extends Component {
   state = {
@@ -49,7 +48,6 @@ class Home extends Component {
         // onClicking={(product) => this.props.onClicking(product)}
         />
         <div id="filter">
-          {/* <FilterDropDown {...this.props} categories={this.state.categories} /> */}
           <Filter {...this.props} categories={this.state.categories} />
         </div>
       </React.Fragment>

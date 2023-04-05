@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import axios from "axios";
-import Razorpay from "razorpay";
+// import Razorpay from "razorpay";
 
 class Total extends Component {
   render() {

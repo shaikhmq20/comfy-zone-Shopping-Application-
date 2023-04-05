@@ -55,7 +55,7 @@ const Signup = (props) => {
   const paperStyle = { padding: "30px 20px", width: 750, margin: "20px auto" };
   const headerStyle = { margin: 0 };
   const avatarStyle = { backgroundColor: "#1bbd7e" };
-  const marginTop = { marginTop: 20 };
+  // const marginTop = { marginTop: 20 };
   return (
     <>
       <Header

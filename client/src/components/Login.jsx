@@ -8,7 +8,7 @@ import {
   Button,
 } from "@material-ui/core";
 import AddCircleOutlineOutlinedIcon from "@material-ui/icons/AddCircleOutlineOutlined";
-import axios from "axios";
+// import axios from "axios";
 import "./signup.css";
 import Header from "./header";
 import { useHistory } from "react-router-dom";
@@ -29,8 +29,8 @@ const Login = (props) => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const url = "http://localhost:5000/api/auth/login";
-      const { data: res } = await axios.post(url, data);
+      // const url = "http://localhost:5000/api/auth/login";
+      // const { data: res } = await axios.post(url, data);
       alert("sucess");
       history.push("/home");
     } catch (error) {
@@ -54,7 +54,7 @@ const Login = (props) => {
   const paperStyle = { padding: "30px 20px", width: 750, margin: "20px auto" };
   const headerStyle = { margin: 0 };
   const avatarStyle = { backgroundColor: "#1bbd7e" };
-  const marginTop = { marginTop: 20 };
+  // const marginTop = { marginTop: 20 };
   return (
     <>
       <Header
