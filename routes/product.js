@@ -8,7 +8,7 @@ router.get("/getProducts", (req, res) => {
 })
 
 router.get("/getProduct/:id", (req, res) => {
-  Product.find({ id: req.params.id })
+  Product.findOne({ id: req.params.id })
     .then((product) => res.json(product))
     .catch((err) => res.json(`Err: ${err}`));
 })

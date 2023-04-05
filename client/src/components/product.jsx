@@ -1,11 +1,11 @@
 import React, { Component } from "react";
 
-import { addItem } from "../utils/cartUtil";
+import { addCartItem } from "../utils/cartUtil";
 import Star from "./star";
 
 class Product extends Component {
   async onClicking(item) {
-    await addItem(item);
+    await addCartItem(item);
   }
 
   render() {

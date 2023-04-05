@@ -5,9 +5,9 @@ import Header from "./header";
 import Total from "./total";
 import {
   getCartItems,
-  updateItem,
-  deleteItem,
-  deleteAllItem,
+  updateCartItem,
+  deleteCartItem,
+  deleteAllCartItem,
 } from "../utils/cartUtil";
 import Pagination from "../common/pagination";
 import { paginate } from "../utils/paginate";
@@ -33,7 +33,7 @@ class CartDisplay extends Component {
     const index = cart.indexOf(cprod);
     cart[index].count++;
     this.setState({ cart });
-    await updateItem(cart[index]);
+    await updateCartItem(cart[index]);
   }
 
   async handleDecrement(cprod) {
@@ -43,19 +43,19 @@ class CartDisplay extends Component {
     else if (cart[index].count === 1)
       return await this.handleCartItemDelete(cprod.id);
     this.setState({ cart });
-    await updateItem(cart[index]);
+    await updateCartItem(cart[index]);
   }
 
   async handleCartItemDelete(id) {
     const cart = [...this.state.cart].filter((cprod) => cprod.id !== id);
     this.setState({ cart });
-    await deleteItem(id);
+    await deleteCartItem(id);
   }
 
   async handleCartEmpty() {
     const cart = [];
     this.setState({ cart });
-    await deleteAllItem();
+    await deleteAllCartItem();
   }
 
   render() {

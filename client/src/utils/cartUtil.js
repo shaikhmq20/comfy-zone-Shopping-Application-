@@ -11,7 +11,7 @@ export const getCartItems = async () => {
   return cartItems;
 };
 
-export const getOldItem = async (id) => {
+export const getOldCartItem = async (id) => {
   const oldItem = await axios
     .get(endpoint + id)
     .then((res) => res.data)
@@ -20,22 +20,22 @@ export const getOldItem = async (id) => {
   return oldItem;
 };
 
-export const updateItem = async (newItem) => {
+export const updateCartItem = async (newItem) => {
   await axios
     .post(endpoint + "updateItem/" + newItem.id, newItem)
     .then((res) => console.log(res))
     .catch((err) => console.log(`Error: ${err}`));
 };
 
-export const deleteItem = async (id) => {
+export const deleteCartItem = async (id) => {
   await axios
     .delete(endpoint + "deleteItem/" + id)
     .then((res) => console.log(res))
     .catch((err) => console.log(`Error: ${err}`));
 };
 
-export const addItem = async (item) => {
-  const oldItem = await getOldItem(item.id);
+export const addCartItem = async (item) => {
+  const oldItem = await getOldCartItem(item.id);
   if (oldItem != null) {
     window.alert("The Product is already in the cart! 🙂");
     return;
@@ -58,7 +58,7 @@ export const getCartSize = async () => {
   return cart.length;
 };
 
-export const deleteAllItem = async () => {
+export const deleteAllCartItem = async () => {
   await axios
     .delete(endpoint + "deleteAllItem/")
     .then((res) => console.log(res))
