@@ -6,6 +6,7 @@ import _ from "lodash"
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowUpWideShort } from "@fortawesome/free-solid-svg-icons";
+import { getProducts } from "../utils/productUtil";
 
 class ProductsDisplay extends Component {
   state = {
@@ -15,10 +16,12 @@ class ProductsDisplay extends Component {
   };
 
   async componentDidMount() {
-    await axios
-      .get("https://dummyjson.com/products/?limit=100")
-      .then((res) => res.data)
-      .then((data) => this.setState({ products: data.products }));
+    // await axios
+    //   .get("https://dummyjson.com/products/?limit=100")
+    //   .then((res) => res.data)
+    //   .then((data) => this.setState({ products: data.products }));
+    const products = await getProducts();
+    this.setState({ products });
   }
 
   filterProducts = (category) => {

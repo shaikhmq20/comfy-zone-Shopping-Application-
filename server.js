@@ -23,6 +23,8 @@ app.use(express.static(path.join(__dirname, "client/build")));
 
 const cartRouter = require("./routes/cart");
 app.use("/api/cart", cartRouter);
+const productRouter = require("./routes/product");
+app.use("/api/product", productRouter);
 /*const LoginRouter =require("./routes/login");
 app.use("/api/login",LoginRouter);*/
 const userRoutes = require("./routes/users");
