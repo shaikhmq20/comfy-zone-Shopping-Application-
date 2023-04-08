@@ -4,19 +4,20 @@ import axios from "axios";
 
 class Total extends Component {
   render() {
-    const initPayment = (data) => {
+    const initPayment = (order_data) => {
       const options = {
         key: process.env.KEY_ID,
-        amount: data.amount,
-        currency: data.currency,
+        amount: order_data.amount,
+        currency: order_data.currency,
         description: "Test Transaction",
-        order_id: data.id,
+        order_id: order_data.id,
         handler: async (response) => {
           try {
             const verifyUrl = "http://localhost:5000/api/payment/verify";
-            const { data } = await axios.post(verifyUrl, response);
+            const { data } = await axios.post(verifyUrl, { ...response, order_id: order_data.id });
             console.log(data);
           } catch (error) {
+            console.log("Response: ", { ...response, order_id: order_data.id });
             console.log(error);
           }
         },
@@ -31,7 +32,6 @@ class Total extends Component {
       try {
         const orderUrl = "http://localhost:5000/api/payment/orders";
         const { data } = await axios.post(orderUrl, { amount: price });
-        console.log(data);
         initPayment(data.data);
       } catch (error) {
         console.log(error);
