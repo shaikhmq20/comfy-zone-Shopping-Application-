@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { Redirect } from "react-router-dom"
 
 import Header from "./header";
 import Cart from "./cart";
@@ -29,8 +30,8 @@ export default class ProductsDetail extends Component {
   };
 
   render() {
-    if (typeof this.state.product === "string" || !this.state.product)
-      this.props.history.push("/home");
+    if (this.state.product === null || typeof this.state.product === "string")
+      return <Redirect to="/home" />
 
     const { thumbnail, title, description, rating, price, stock } =
       this.state.product;
