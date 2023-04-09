@@ -707,3 +707,25 @@ h3 {
   width: 40%;
   padding-left: 20px;
 }
+
+@media only screen and (max-width: 768px) {
+  .product-detail-container {
+    flex-direction: column;
+  }
+
+  .product-detail-description {
+    width: 100%;
+    padding: 10px;
+  }
+}
+
+.product-detail-stock {
+  margin-top: 20px;
+}
+
+.badge {
+  font-weight: bold;
+  background-color: #e7e2dd;
+  padding: 5px 10px;
+  border-radius: 8px;
+}

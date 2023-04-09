@@ -16,6 +16,10 @@ export default class ProductsDetail extends Component {
     this.setState({ product });
   }
 
+  getWidth = () => {
+    return document.getElementsByClassName("product-detail-image").offsetWidth - 20;
+  };
+
   render() {
     if (typeof this.state.product === "string" || !this.state.product)
       this.props.history.push("/home");
@@ -27,12 +31,18 @@ export default class ProductsDetail extends Component {
         <Header />
         <div className="product-detail-container">
           <img className="product-detail-image" src={thumbnail} alt={title} />
-          <div className="product-detail-description">
+          <div
+            className="product-detail-description"
+            style={{
+              width: this.getWidth(),
+            }}>
             <h2>{title}</h2>
             <p>{description}</p>
             <span>${price}</span>
             <Star rating={rating} />
-            <span>Stock: {stock}</span>
+            <div className="product-detail-stock">
+              <span className="badge">Stock: {stock}</span>
+            </div>
           </div>
         </div>
         <Cart />
