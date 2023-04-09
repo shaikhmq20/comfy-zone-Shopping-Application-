@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { Link } from "react-router-dom";
 
 import { addCartItem } from "../utils/cartUtil";
 import Star from "./star";
@@ -9,19 +10,21 @@ class Product extends Component {
   }
 
   render() {
-    const { thumbnail, title, price, rating } = this.props.product;
+    const { thumbnail, title, price, rating, id } = this.props.product;
     return (
       <React.Fragment>
         <div className="product-container">
-          <div
-            className="product-image"
-            style={{
-              backgroundImage: `url(${thumbnail})`,
-              backgroundSize: "cover",
-            }}
-          >
-            {/* <img src={image[0]} alt="" /> */}
-          </div>
+          <Link to={`/product/${id}`}>
+            <div
+              className="product-image"
+              style={{
+                backgroundImage: `url(${thumbnail})`,
+                backgroundSize: "cover",
+              }}
+            >
+              {/* <img src={image[0]} alt="" /> */}
+            </div>
+          </Link>
           <center>
             <div className="product-name">{title}</div>
           </center>

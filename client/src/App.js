@@ -6,6 +6,7 @@ import CartDisplay from "./components/cartDisplay";
 import "./App.css";
 import { HashRouter as Router, Route, Switch } from "react-router-dom";
 import getProducts from "./products";
+import ProductsDetail from "./components/productsDetail";
 
 class App extends Component {
   state = {
@@ -76,6 +77,17 @@ class App extends Component {
               <CartDisplay
                 darkMode={this.state.darkMode}
                 product={this.state.products}
+                toggleTheme={() => this.toggleDarkMode()}
+                {...props}
+              />
+            )}
+          />
+          <Route
+            path="/product/:id"
+            render={(props) => (
+              <ProductsDetail
+                products={this.state.products}
+                darkMode={this.state.darkMode}
                 toggleTheme={() => this.toggleDarkMode()}
                 {...props}
               />
