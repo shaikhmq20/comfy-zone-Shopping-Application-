@@ -16,6 +16,14 @@ export default class ProductsDetail extends Component {
     this.setState({ product });
   }
 
+  async componentDidUpdate(prevProps, prevState) {
+    if(prevProps.match.params.id !== this.props.match.params.id) {
+      const product = await getProductById(this.props.match.params.id);
+      console.log(product);
+      this.setState({ product });
+    }
+  }
+
   getWidth = () => {
     return document.getElementsByClassName("product-detail-image").offsetWidth - 20;
   };
