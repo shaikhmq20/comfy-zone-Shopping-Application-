@@ -15,18 +15,6 @@ class Home extends Component {
 
   async componentDidMount() {
     const categories = [];
-
-    /*const decode = (token) => JSON.parse(atob(token.split('.')[1]));
-    const token=localStorage.getItem("token");
-    if(token==undefined){
-      alert("Error: kindly login to the site");
-      this.props.history.push("/");
-      window.location.replace("/");
-      
-    }*/
-    
-      //var decoded_token=decode(token);
-      //this.setState({usertoken:decoded_token});
       await axios
         .get("https://dummyjson.com/products/?limit=100")
         .then((res) => res.data)

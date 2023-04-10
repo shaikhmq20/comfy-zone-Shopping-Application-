@@ -1,7 +1,5 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
-import { withRouter } from 'react-router-dom';
-import {Button} from "@material-ui/core";
 class Header extends Component {
   toggleIcon = () => {
     let icon = "fas";
@@ -9,10 +7,7 @@ class Header extends Component {
     else icon += " fa-moon fa-2x";
     return icon;
   };
-  Logout=()=>{
-    localStorage.clear();
-    this.props.history.push("/");
-  }
+
 
   render() {
     //const{history}=this.props;
@@ -25,7 +20,7 @@ class Header extends Component {
           </Link>
         </h1>
         <div id="theme">
-        <i class="fa fa-sign-out fa-2x " style={{rotate:"180deg",marginRight:"9px"}} aria-hidden="true" onClick={this.Logout}></i>
+       
           <i className={icon} onClick={() => this.props.toggleTheme()}></i>
         </div>
       </header>
@@ -33,4 +28,4 @@ class Header extends Component {
   }
 }
 
-export default withRouter(Header);
+export default Header;
