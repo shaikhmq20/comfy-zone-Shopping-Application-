@@ -1,14 +1,22 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
-import { getCartSize } from "../utils/cartUtil";
+import { getCartItems, getCartSize, getuser } from "../utils/cartUtil";
+import CartItem from "./cartItem";
 
 class Cart extends Component {
   state = {
     size: 0,
   };
 
+
   async componentDidMount() {
-    const size = await getCartSize();
+    const decode = (token) => JSON.parse(atob(token.split('.')[1]));
+    const token=localStorage.getItem("token");
+    var decoded_token=decode(token);
+   
+    var user_id=String(decoded_token["_id"]);
+    var data = await getCartItems();
+    const size=data.filter((cartitem)=>cartitem.user_id==user_id).length;
     this.setState({ size });
   }
 

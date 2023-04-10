@@ -7,6 +7,8 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowUpWideShort } from "@fortawesome/free-solid-svg-icons";
 import { getProducts } from "../utils/productUtil";
 
+
+
 class ProductsDisplay extends Component {
   state = {
     products: [],
@@ -19,6 +21,7 @@ class ProductsDisplay extends Component {
     //   .get("https://dummyjson.com/products/?limit=100")
     //   .then((res) => res.data)
     //   .then((data) => this.setState({ products: data.products }));
+  
     const products = await getProducts();
     this.setState({ products });
   }
@@ -47,6 +50,9 @@ class ProductsDisplay extends Component {
   }
 
   render() {
+ 
+ 
+    
     const { products } = this.state;
     const { category } = this.props;
     let filteredProducts = [...products];
@@ -71,7 +77,7 @@ class ProductsDisplay extends Component {
         </div>
         <div id="products-container">
           {filteredProducts.map((product) => {
-            return <Product product={product} key={product.id} />;
+            return <Product product={product} key={product.id} user_email={String(this.props.usertoken["Email"])} user_id={String(this.props.usertoken["_id"])} />;
           })}
         </div>
         <Cart />

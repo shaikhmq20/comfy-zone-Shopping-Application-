@@ -8,6 +8,7 @@ import {
   updateCartItem,
   deleteCartItem,
   deleteAllCartItem,
+  
 } from "../utils/cartUtil";
 import Pagination from "../common/pagination";
 import { paginate } from "../utils/paginate";
@@ -15,6 +16,7 @@ import { paginate } from "../utils/paginate";
 class CartDisplay extends Component {
   state = {
     cart: [],
+    user_id:"",
     currentPage: 1,
     pageSize: 3,
   };
@@ -22,9 +24,15 @@ class CartDisplay extends Component {
   handlePageChange = (page) => {
     this.setState({ currentPage: page });
   };
-
   async componentDidMount() {
-    const cart = await getCartItems();
+    const decode = (token) => JSON.parse(atob(token.split('.')[1]));
+    const token=localStorage.getItem("token");
+    var decoded_token=decode(token);
+   
+    var user_id=String(decoded_token["_id"]);
+    this.setState({user_id});
+    var cart = await getCartItems();
+    cart=cart.filter((cartitem)=>cartitem.user_id==user_id);
     this.setState({ cart });
   }
 
@@ -41,21 +49,21 @@ class CartDisplay extends Component {
     const index = cart.indexOf(cprod);
     if (cart[index].count > 1) cart[index].count--;
     else if (cart[index].count === 1)
-      return await this.handleCartItemDelete(cprod.id);
+      return await this.handleCartItemDelete(cprod.id,cprod.user_id);
     this.setState({ cart });
     await updateCartItem(cart[index]);
   }
 
-  async handleCartItemDelete(id) {
-    const cart = [...this.state.cart].filter((cprod) => cprod.id !== id);
+  async handleCartItemDelete(id,user_id) {
+    const cart = [...this.state.cart].filter((cprod) => (cprod.id !== id ));
     this.setState({ cart });
-    await deleteCartItem(id);
+    await deleteCartItem(id,user_id);
   }
 
-  async handleCartEmpty() {
+  async handleCartEmpty(user_id) {
     const cart = [];
     this.setState({ cart });
-    await deleteAllCartItem();
+    await deleteAllCartItem(user_id);
   }
 
   render() {
@@ -94,14 +102,14 @@ class CartDisplay extends Component {
                   key={cprod.id}
                   onIncrement={() => this.handleIncrement(cprod)}
                   onDecrement={() => this.handleDecrement(cprod)}
-                  onRemove={() => this.handleCartItemDelete(cprod.id)}
+                  onRemove={() => this.handleCartItemDelete(cprod.id,cprod.user_id)}
                 />
               );
             })}
           </div>
           <Total
             cart={this.state.cart}
-            onEmpty={() => this.handleCartEmpty()}
+            onEmpty={() => this.handleCartEmpty(this.state.user_id)}
           />
         </div>
       </React.Fragment>

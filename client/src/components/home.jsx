@@ -9,10 +9,15 @@ class Home extends Component {
   state = {
     category: this.props.match.params.category,
     categories: [],
+    usertoken:""
   };
 
   async componentDidMount() {
     const categories = [];
+    const decode = (token) => JSON.parse(atob(token.split('.')[1]));
+    const token=localStorage.getItem("token");
+    var decoded_token=decode(token);
+    this.setState({usertoken:decoded_token});
     await axios
       .get("https://dummyjson.com/products/?limit=100")
       .then((res) => res.data)
@@ -24,6 +29,8 @@ class Home extends Component {
         let uniqueCategories = new Set(categories);
         this.setState({ categories: [...uniqueCategories] });
       });
+
+
   }
 
   componentDidUpdate(prevProps, prevState) {
@@ -40,6 +47,7 @@ class Home extends Component {
         />
         <Banner />
         <ProductsDisplay
+          usertoken={this.state.usertoken}
           products={this.props.products}
           categories={this.state.categories}
           category={this.state.category}

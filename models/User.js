@@ -23,8 +23,8 @@ const UserSchema = new Schema({
   },
 });
 UserSchema.methods.generateAuthToken = function () {
-  const token = jwt.sign({ _id: this._id }, "user_jwt_token", {
-    expiresIn: "7d",
+  const token = jwt.sign({ _id: this._id,Email:this.Email }, "user_jwt_token", {
+    expiresIn: "8d",
   });
   return token;
 };

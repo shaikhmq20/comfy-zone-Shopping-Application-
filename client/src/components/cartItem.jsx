@@ -5,7 +5,7 @@ import Counter from "./counter";
 
 class CartItem extends Component {
   render() {
-    const { title, thumbnail, price, id } = this.props.cprod;
+    const { title, thumbnail, price, id,user_id } = this.props.cprod;
 
     return (
       <div className="cart-item">
@@ -38,7 +38,7 @@ class CartItem extends Component {
             <div className="remove-item">
               <button
                 className="remove-btn"
-                onClick={(cprod) => this.props.onRemove(cprod.id)}>
+                onClick={(cprod) => this.props.onRemove(cprod.id,cprod.user_id)}>
                 Remove
               </button>
             </div>

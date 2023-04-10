@@ -7,14 +7,16 @@ router.get("/getCartItems", (req, res) => {
     .catch((err) => console.log(err));
 });
 
-router.get("/:id", (req, res) => {
-  Cart.findOne({ id: req.params.id })
-    .then((prod) => res.json(prod))
+router.get("/:userid/:id", (req, res) => {
+  Cart.findOne({ user_id: req.params.userid,id:req.params.id })
+    .then((prod) =>{ res.json(prod)
+    console.log(prod)})
     .catch((err) => console.log(err));
 });
 
-router.post("/addToCart/", (req, res) => {
+router.post("/addToCart", (req, res) => {
   const newCart = new Cart(req.body);
+  console.log("body",req.body);
 
   newCart
     .save()
@@ -23,19 +25,20 @@ router.post("/addToCart/", (req, res) => {
 });
 
 router.post("/updateItem/:id", (req, res) => {
-  Cart.findOneAndUpdate({ id: req.body.id }, req.body)
+  Cart.findOneAndUpdate({ id: req.body.id,user_id:req.body.user_id }, req.body)
     .then(() => res.json("Done!"))
     .catch((err) => res.status(400).json(`Error: ${err}`));
 });
 
-router.delete("/deleteItem/:id", (req, res) => {
-  Cart.findOneAndDelete({ id: req.params.id })
+router.delete("/deleteItem/:id/:userid", (req, res) => {
+  Cart.findOneAndDelete({ id: req.params.id,user_id:req.params.userid })
+    
     .then(() => res.json("Done Deleting!"))
     .catch((err) => res.status(400).json(`Error: ${err}`));
 });
 
-router.delete("/deleteAllItem", (req, res) => {
-  Cart.deleteMany()
+router.delete("/deleteAllItem/:userid", (req, res) => {
+  Cart.deleteMany({user_id:req.params.userid})
     .then(() => res.json("Successfully Deleted all Cart Items!"))
     .catch((err) => res.status(400).json(`Error: ${err}`));
 });

@@ -3,14 +3,20 @@ import { Link } from "react-router-dom";
 
 import { addCartItem } from "../utils/cartUtil";
 import Star from "./star";
+import { update } from "lodash";
 
 class Product extends Component {
   async onClicking(item) {
+    delete item["_id"]; 
+    console.log("item",item);
     await addCartItem(item);
   }
 
   render() {
-    const { thumbnail, title, price, rating, id } = this.props.product;
+    const { thumbnail, title, price, rating, id} = this.props.product;
+    const user_email=this.props.user_email;
+    const user_id=this.props.user_id;
+    //console.log(user);
     return (
       <React.Fragment>
         <div className="product-container">
@@ -33,7 +39,10 @@ class Product extends Component {
 
           <span
             onClick={() => {
-              this.onClicking(this.props.product);
+              var updated_products=this.props.product;
+              updated_products["user_email"]=user_email;
+              updated_products["user_id"]=user_id;
+              this.onClicking(updated_products);
             }}
             className="add-to-cart"
           >

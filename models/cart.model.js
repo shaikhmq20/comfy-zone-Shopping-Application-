@@ -14,10 +14,9 @@ const cartSchema = new Schema(
     category: String,
     thumbnail: String,
     images: Array,
-    // name: String,
-    // price: Number,
-    // image: String,
     count: Number,
+    user_email:String,
+    user_id:String
   },
   { timestamps: true }
 );
