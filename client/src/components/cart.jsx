@@ -15,8 +15,9 @@ class Cart extends Component {
     var decoded_token=decode(token);
    
     var user_id=String(decoded_token["_id"]);
-    var data = await getCartItems();
-    const size=data.filter((cartitem)=>cartitem.user_id==user_id).length;
+    var data = await getCartItems(user_id);
+    const size=data.length;
+   
     this.setState({ size });
   }
 

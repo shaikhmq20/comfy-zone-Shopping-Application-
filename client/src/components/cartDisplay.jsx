@@ -31,8 +31,8 @@ class CartDisplay extends Component {
    
     var user_id=String(decoded_token["_id"]);
     this.setState({user_id});
-    var cart = await getCartItems();
-    cart=cart.filter((cartitem)=>cartitem.user_id==user_id);
+    var cart = await getCartItems(user_id);
+    //cart=cart.filter((cartitem)=>cartitem.user_id==user_id);
     this.setState({ cart });
   }
 

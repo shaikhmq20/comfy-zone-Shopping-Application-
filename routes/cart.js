@@ -1,8 +1,8 @@
 const router = require("express").Router();
 const Cart = require("../models/cart.model");
 
-router.get("/getCartItems", (req, res) => {
-  Cart.find()
+router.get("/getCartItems/:userid", (req, res) => {
+  Cart.find({user_id:req.params.userid})
     .then((cart) => res.json(cart))
     .catch((err) => console.log(err));
 });
@@ -10,13 +10,13 @@ router.get("/getCartItems", (req, res) => {
 router.get("/:userid/:id", (req, res) => {
   Cart.findOne({ user_id: req.params.userid,id:req.params.id })
     .then((prod) =>{ res.json(prod)
-    console.log(prod)})
+    })
     .catch((err) => console.log(err));
 });
 
 router.post("/addToCart", (req, res) => {
   const newCart = new Cart(req.body);
-  console.log("body",req.body);
+  //console.log("body",req.body);
 
   newCart
     .save()

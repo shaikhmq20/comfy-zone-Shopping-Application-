@@ -4,9 +4,9 @@ const endpoint = `${window.location.origin}/api/cart/`;
 
 
 
-export const getCartItems = async () => {
+export const getCartItems = async (user_id) => {
   const cartItems = await axios
-    .get(endpoint+"getCartItems/")
+    .get(endpoint+"getCartItems/"+user_id)
     .then((res) => res.data)
     .catch((err) => console.log(`Error: ${err}`));
 
