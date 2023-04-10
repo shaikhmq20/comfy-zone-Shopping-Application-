@@ -15,6 +15,7 @@ import { useHistory } from "react-router-dom";
 
 const Login = (props) => {
   const history = useHistory();
+  localStorage.clear();
 
   const [data, setData] = useState({
     Email: "",

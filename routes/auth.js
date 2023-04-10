@@ -4,6 +4,7 @@ const bcrypt = require("bcrypt");
 const Joi = require("joi");
 
 router.post("/login", async (req, res) => {
+  
   try {
     const { error } = validate(req.body);
     if (error)

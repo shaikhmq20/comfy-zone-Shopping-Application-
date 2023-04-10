@@ -6,7 +6,7 @@ import _ from "lodash"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowUpWideShort } from "@fortawesome/free-solid-svg-icons";
 import { getProducts } from "../utils/productUtil";
-
+//import {getuser} from "../utils/cartUtil";
 
 
 class ProductsDisplay extends Component {
@@ -50,7 +50,8 @@ class ProductsDisplay extends Component {
   }
 
   render() {
- 
+    //var decoded_token=String(getuser());
+   // console.log(decoded_token);
  
     
     const { products } = this.state;
@@ -77,7 +78,7 @@ class ProductsDisplay extends Component {
         </div>
         <div id="products-container">
           {filteredProducts.map((product) => {
-            return <Product product={product} key={product.id} user_email={String(this.props.usertoken["Email"])} user_id={String(this.props.usertoken["_id"])} />;
+            return <Product product={product} key={product.id} />;
           })}
         </div>
         <Cart />

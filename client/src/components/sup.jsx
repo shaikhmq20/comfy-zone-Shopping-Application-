@@ -13,6 +13,7 @@ import "./signup.css";
 import Header from "./header";
 import { useHistory } from "react-router-dom";
 const Signup = (props) => {
+  
   const history = useHistory();
 
   const [data, setData] = useState({

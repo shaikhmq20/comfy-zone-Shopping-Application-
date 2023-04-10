@@ -2,6 +2,8 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import { getCartItems, getCartSize, getuser } from "../utils/cartUtil";
 import CartItem from "./cartItem";
+import { withRouter } from "react-router-dom";
+
 
 class Cart extends Component {
   state = {
@@ -12,6 +14,12 @@ class Cart extends Component {
   async componentDidMount() {
     const decode = (token) => JSON.parse(atob(token.split('.')[1]));
     const token=localStorage.getItem("token");
+    if(token==undefined || token==null){
+      alert("Error: kindly login to the site");
+      this.props.history.push("/");
+      window.location.replace("/");
+     
+    }
     var decoded_token=decode(token);
    
     var user_id=String(decoded_token["_id"]);
@@ -35,4 +43,4 @@ class Cart extends Component {
   }
 }
 
-export default Cart;
+export default withRouter(Cart);

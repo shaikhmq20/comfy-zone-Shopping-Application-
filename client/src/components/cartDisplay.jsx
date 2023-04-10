@@ -10,6 +10,7 @@ import {
   deleteAllCartItem,
   
 } from "../utils/cartUtil";
+import { withRouter } from "react-router-dom";
 import Pagination from "../common/pagination";
 import { paginate } from "../utils/paginate";
 
@@ -27,6 +28,13 @@ class CartDisplay extends Component {
   async componentDidMount() {
     const decode = (token) => JSON.parse(atob(token.split('.')[1]));
     const token=localStorage.getItem("token");
+    if(token==undefined || token==null){
+      alert("kindly login to the site");
+    
+      this.props.history.push("/");
+      window.location.replace("/");
+
+    }
     var decoded_token=decode(token);
    
     var user_id=String(decoded_token["_id"]);
@@ -117,4 +125,4 @@ class CartDisplay extends Component {
   }
 }
 
-export default CartDisplay;
+export default withRouter(CartDisplay);
