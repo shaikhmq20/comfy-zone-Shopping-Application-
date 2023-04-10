@@ -33,8 +33,12 @@ export default class ProductsDetail extends Component {
     if (this.state.product === null || typeof this.state.product === "string")
       return <Redirect to="/home" />
 
-    const { thumbnail, title, description, rating, price, stock } =
+    const { thumbnail, title, description, rating, price, stock, images } =
       this.state.product;
+
+    console.log(images);
+    console.log(Array.isArray(images));
+    console.log(this.state.product);
     return (
       <>
         <Header />

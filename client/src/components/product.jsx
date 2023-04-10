@@ -29,7 +29,7 @@ class Product extends Component {
             <div className="product-name">{title}</div>
           </center>
           <Star rating={rating}></Star>
-          <div className="product-price">${price}</div>
+          <div className="product-price">${price[0]}</div>
 
           <span
             onClick={() => {

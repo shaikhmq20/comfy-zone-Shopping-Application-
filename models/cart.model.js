@@ -6,7 +6,7 @@ const cartSchema = new Schema(
     id: Number,
     title: String,
     description: String,
-    price: Number,
+    price: [Number],
     discountPercentage: Number,
     rating: Number,
     stock: Number,

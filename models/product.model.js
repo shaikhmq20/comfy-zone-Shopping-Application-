@@ -10,7 +10,7 @@ const productSchema = new Schema(
       maxLength: 500,
     },
     price: {
-      type: Number,
+      type: [Number],
       require: true,
       min: 0
     },

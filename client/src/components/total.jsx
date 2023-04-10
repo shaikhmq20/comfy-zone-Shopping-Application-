@@ -58,7 +58,7 @@ class Total extends Component {
     }
 
     const sum = this.props.cart.reduce((sum, item) => {
-      return sum + item.price * item.count;
+      return sum + item.price[0] * item.count;
     }, 0);
 
     if (this.props.cart.length === 0) return null;
