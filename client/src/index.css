@@ -701,6 +701,7 @@ h3 {
   height: 100%;
   max-width: 500px;
   max-height: 1000px;
+  box-shadow: 0 0 10px #e7e2dd;
 }
 
 .product-detail-description {
