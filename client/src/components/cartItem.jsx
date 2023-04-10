@@ -26,7 +26,7 @@ class CartItem extends Component {
             }}>
             <div className="item-name">{title}</div>
           </Link>
-          <div className="item-price">${price}</div>
+          <div className="item-price">${price[0]}</div>
           <div id="response">
             <div className="item-count">
               <Counter
