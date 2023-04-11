@@ -209,13 +209,13 @@ header a {
   background-color: #fff;
   color: #ee6c4d;
   border: 1px solid #ee6c4d;
+  border-radius: 8px;
   padding: 15px 30px;
   transition: all 0.25s;
 }
 
 .buttons:hover {
   cursor: pointer;
-  border: none;
   color: #fff;
   background-color: #ee6c4d;
 }

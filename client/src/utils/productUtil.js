@@ -14,7 +14,6 @@ export const getProductById = async (id) => {
   const product = await axios.get(`${ENDPOINT}/getProduct/${id}`)
     .then((res) => res.data)
     .catch((err) => console.log(err));
-
   return product;
 }
 

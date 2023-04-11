@@ -12,7 +12,6 @@ const productSchema = new Schema(
     price: {
       type: [Number],
       require: true,
-      min: 0
     },
     discountPercentage: {
       type: Number,
