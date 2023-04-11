@@ -62,6 +62,8 @@ function Graph({ modalOpen, onModalClose, price }) {
     return "50%"
   }
 
+  for (let i = 0; i < data.length; i++) data[i].price = price[i];
+
   return (
     <Modal
       open={modalOpen}
