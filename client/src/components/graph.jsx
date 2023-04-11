@@ -1,4 +1,4 @@
-import React, { Component, useEffect, useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { Modal, Box } from "@material-ui/core";
 import {
   LineChart,
@@ -31,11 +31,11 @@ const styles = {
     display: "flex",
     justifyContent: "center",
     alignItems: "center",
-    fontWeight : "500",
+    fontWeight: "500",
     backgroundColor: "#e7e2dd",
     height: "50%",
     borderRadius: 8,
-    boxShadow: "0 0 10px #e7e2dd",
+    boxShadow: "5px 5px 20px #3f3f3f",
     padding: 20,
   },
 };
@@ -56,11 +56,10 @@ function Graph({ modalOpen, onModalClose, price }) {
   });
 
   const getBoxWidth = () => {
-    if (viewWidth < 768)
-      return "100%";
+    if (viewWidth < 768) return "100%";
 
-    return "50%"
-  }
+    return "50%";
+  };
 
   for (let i = 0; i < data.length; i++) data[i].price = price[i];
 
