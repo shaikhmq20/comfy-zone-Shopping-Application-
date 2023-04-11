@@ -18,6 +18,7 @@ export const getProductById = async (id) => {
 }
 
 export const updateProductById = async (product) => {
+  delete product._id;
   await axios.put(`${ENDPOINT}/updateProduct/${product.id}`, product)
     .then((res) => console.log(res))
     .catch((err) => console.log(err));
