@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { Component, useEffect, useRef, useState } from "react";
 import { Modal, Box } from "@material-ui/core";
 import {
   LineChart,
@@ -8,6 +8,7 @@ import {
   CartesianGrid,
   Tooltip,
   Legend,
+  ResponsiveContainer,
 } from "recharts";
 
 const data = [
@@ -30,36 +31,49 @@ const styles = {
     display: "flex",
     justifyContent: "center",
     alignItems: "center",
-    fontWeight: "bold",
+    fontWeight : "500",
     backgroundColor: "#e7e2dd",
-    width: "50%",
     height: "50%",
     borderRadius: 8,
-    boxShadow: "0 0 10px #e7e2dd"
+    boxShadow: "0 0 10px #e7e2dd",
+    padding: 20,
   },
 };
 
-class Graph extends Component {
-  render() {
-    const { modalOpen, onModalClose, price } = this.props;
-    for (let i = 0; i < data.length; i++)
-      data[i].price = price[i];
+function Graph({ modalOpen, onModalClose, price }) {
+  const windowRef = useRef(null);
+  const [viewWidth, setViewWidth] = useState(window.innerWidth);
 
-    // console.log(product.price[0]);
-    return (
-      <Modal
-        open={modalOpen}
-        style={styles.modal}
-        onClose={() => onModalClose()}
-        aria-labelledby={"Price Graph"}
-        aria-describedby={
-          "A line plot for the different prices for the given particular product"
-        }>
-        <Box style={styles.box}>
-          {/*<Typography variant={"h6"} component={"h2"}>*/}
-          {/*  Hello*/}
-          {/*</Typography>*/}
-          <LineChart width={500} height={300} data={data}>
+  useEffect(() => {
+    windowRef.current = window;
+    const handleResize = () => {
+      setViewWidth(windowRef.current.innerWidth);
+    };
+
+    window.addEventListener("resize", handleResize);
+
+    return () => window.removeEventListener("resize", handleResize);
+  });
+
+  const getBoxWidth = () => {
+    if (viewWidth < 768)
+      return "100%";
+
+    return "50%"
+  }
+
+  return (
+    <Modal
+      open={modalOpen}
+      style={styles.modal}
+      onClose={() => onModalClose()}
+      aria-labelledby={"Price Graph"}
+      aria-describedby={
+        "A line plot for the different prices for the given particular product"
+      }>
+      <Box style={styles.box} width={getBoxWidth()}>
+        <ResponsiveContainer width={"100%"} height={"100%"}>
+          <LineChart data={data}>
             <XAxis dataKey="month" />
             <YAxis />
             <CartesianGrid strokeDasharray="3 3" />
@@ -72,10 +86,51 @@ class Graph extends Component {
               activeDot={{ r: 7 }}
             />
           </LineChart>
-        </Box>
-      </Modal>
-    );
-  }
+        </ResponsiveContainer>
+      </Box>
+    </Modal>
+  );
 }
+
+// class Graph extends Component {
+//   state = {
+//     width: window.innerWidth,
+//     height: window.innerHeight,
+//   }
+//
+//   render() {
+//     const {modalOpen, onModalClose, price} = this.props;
+//     for (let i = 0; i < data.length; i++) data[i].price = price[i];
+//
+//     const {width, height} = this.state;
+//     console.log(width, height);
+//     return (
+//       <Modal
+//         open={modalOpen}
+//         style={styles.modal}
+//         onClose={() => onModalClose()}
+//         aria-labelledby={"Price Graph"}
+//         aria-describedby={
+//           "A line plot for the different prices for the given particular product"
+//         }>
+//         <Box style={styles.box}>
+//           <LineChart width={width / 2} height={height / 2} data={data}>
+//             <XAxis dataKey="month"/>
+//             <YAxis/>
+//             <CartesianGrid strokeDasharray="3 3"/>
+//             <Tooltip/>
+//             <Legend/>
+//             <Line
+//               type="monotone"
+//               dataKey="price"
+//               stroke="#ee6c4d"
+//               activeDot={{r: 7}}
+//             />
+//           </LineChart>
+//         </Box>
+//       </Modal>
+//     );
+//   }
+// }
 
 export default Graph;
