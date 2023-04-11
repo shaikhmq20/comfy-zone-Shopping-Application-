@@ -85,6 +85,7 @@ function Graph({ modalOpen, onModalClose, price }) {
               dataKey="price"
               stroke="#ee6c4d"
               activeDot={{ r: 7 }}
+              strokeWidth={3}
             />
           </LineChart>
         </ResponsiveContainer>
