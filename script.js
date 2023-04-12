@@ -1,6 +1,8 @@
 const axios = require("axios");
 const { StatusCodes } = require("http-status-codes");
 
+const sendEmail = require("./utils/mail");
+
 const getAllUsers = async () => {
   const response = await axios
     .get(`http://localhost:5000/api/user/getAllUsers`)
@@ -38,7 +40,8 @@ const updateProductPrice = async (id, newPrice) => {
   const oldProduct = await getProductById(id);
   oldProduct.price[0] = newPrice;
   delete oldProduct._id;
-  const response = await axios.put(`http://localhost:5000/api/product/updateProduct/${id}`, oldProduct)
+  const response = await axios
+    .put(`http://localhost:5000/api/product/updateProduct/${id}`, oldProduct)
     .then((res) => res)
     .catch((err) => err);
 
@@ -48,10 +51,20 @@ const updateProductPrice = async (id, newPrice) => {
   }
   console.log(response.data);
 
-  const emails = getEmailsForNotification(id, newPrice);
-  return emails;
+  const emails = await getEmailsForNotification(id, newPrice);
+  return { product: oldProduct, emails };
 };
 
 updateProductPrice(2, 820)
-  .then((emails) => console.log(emails))
+  .then(({ product, emails }) => {
+    for (let i = 0; i < emails.length; i++) {
+      const message = `
+      <div style="font-size: 20px">
+        <p>Hello User</p>
+        <p>This is to let you know that the price for <strong>${product.title}</strong> is updated to \$${product.price[0]}</p>
+      </div>
+      `;
+      sendEmail(emails[i], message);
+    }
+  })
   .catch((err) => console.log(err));
