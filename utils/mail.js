@@ -2,7 +2,7 @@ const dotenv = require("dotenv");
 const nodemailer = require("nodemailer");
 
 const senderEmailPassword = dotenv.config().parsed.MAIL_PASSWORD;
-const sendEmail = async (receiverEmail, text) => {
+const sendEmail = async (receiverEmail, html) => {
   const transporter = nodemailer.createTransport({
     host: "smtp.office365.com",
     port: 587,
@@ -17,10 +17,10 @@ const sendEmail = async (receiverEmail, text) => {
     from: "shaikhmq20.comp@coep.ac.in",
     to: receiverEmail,
     subject: "Product Price Update",
-    html: text,
+    html,
   };
 
-  await transporter.sendMail(mailOptions, (error, info) => {
+  return await transporter.sendMail(mailOptions, (error, info) => {
     if (error) {
       console.error(error);
     } else {

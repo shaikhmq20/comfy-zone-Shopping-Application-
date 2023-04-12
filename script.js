@@ -27,7 +27,7 @@ const getEmailsForNotification = async (id, newPrice) => {
   const users = await getAllUsers();
   for (let i = 0; i < users.length; i++) {
     const found = users[i].productsNotification.find(
-      (obj) => obj.id === id && newPrice < obj.price
+      (obj) => obj.id === id && newPrice <= obj.price
     );
 
     if (found) emails.push(found.altEmail);
@@ -56,15 +56,22 @@ const updateProductPrice = async (id, newPrice) => {
 };
 
 updateProductPrice(2, 820)
-  .then(({ product, emails }) => {
+  .then(async ({ product, emails }) => {
     for (let i = 0; i < emails.length; i++) {
-      const message = `
-      <div style="font-size: 20px">
-        <p>Hello User</p>
-        <p>This is to let you know that the price for <strong>${product.title}</strong> is updated to \$${product.price[0]}</p>
-      </div>
-      `;
-      sendEmail(emails[i], message);
+      const html = `
+        <div style="font-size: 20px">
+          <p>Hello User</p>
+          <p>
+            This is to let you know that the price for <strong>${product.title}</strong> is updated to <strong>\$${product.price[0]}</strong>
+          </p>
+          <div>
+            <center>
+              <img src="${product.thumbnail}" alt="${product.title}" />
+            </center>
+          </div>
+        </div>`;
+      
+      await sendEmail(emails[i], html);
     }
   })
   .catch((err) => console.log(err));
