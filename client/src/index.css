@@ -14,7 +14,6 @@
 
 body {
   background: var(--background);
-  font-family: "Open Sans";
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, "Montserrat", "Segoe UI", "Roboto", "Oxygen",
     "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
@@ -731,4 +730,8 @@ h3 {
   background-color: #e7e2dd;
   padding: 5px 10px;
   border-radius: 8px;
+}
+
+.price-notification {
+  margin-top: 20px;
 }

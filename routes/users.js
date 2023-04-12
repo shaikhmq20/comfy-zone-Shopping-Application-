@@ -1,6 +1,28 @@
 const router = require("express").Router();
+const { StatusCodes } = require("http-status-codes");
 const { User, validate } = require("../models/user");
 const bcrypt = require("bcrypt");
+
+router.post("/getUser", (req, res) => {
+  const { _id } = req.body;
+  User.findById(_id)
+    .then((user) => res.json(user))
+    .catch((err) => res.json(`Err: ${err}`));
+});
+
+router.get("/getAllUsers", (req, res) => {
+  User.find()
+    .then((users) => res.json(users))
+    .catch((err) => res.json(`Err: ${err}`));
+});
+
+router.put("/updateUser", (req, res) => {
+  const { _id } = req.body;
+  console.log(req.body);
+  User.findByIdAndUpdate(_id, req.body)
+    .then(() => res.json("User updated Successfully!"))
+    .catch((err) => res.json(`Err: ${err}`));
+});
 
 router.post("/register", async (req, res) => {
   try {
